@@ -1,29 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   fdf_error_message.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mstrba <mstrba@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/19 17:22:58 by mstrba            #+#    #+#             */
-/*   Updated: 2023/11/19 18:50:12 by mstrba           ###   ########.fr       */
+/*   Created: 2023/11/19 18:09:02 by mstrba            #+#    #+#             */
+/*   Updated: 2023/11/19 18:22:57 by mstrba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../lib/fdf.h"
 
-int	main(int argc, char	**argv)
+void	fdf_diff_num_of_args(void)
 {
-	int	fd;
-	int	**map_coordinates;
+	write(1, "Wrong number of arguments. Try again.\n", 38);
+}
 
-	if (argc != 2)
-		fdf_diff_num_of_args();
-	fd = fdf_open_file(argv);
-	if (fd != -1)
-		map_coordinates = fdf_read_map(fd);
-	else
-		fdf_corrupted_file();
-
-	return (EXIT_SUCCESS);
+void	fdf_corrupted_file(void)
+{
+	write(1, "The file u provided is corrupted.", 33);
 }
