@@ -6,7 +6,7 @@
 /*   By: mstrba <mstrba@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 14:51:02 by mstrba            #+#    #+#             */
-/*   Updated: 2023/10/24 16:35:01 by mstrba           ###   ########.fr       */
+/*   Updated: 2023/11/19 20:28:09 by mstrba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int		ft_toupper(int c);
 /*-----------------------STRINGS-----------------------*/
 
 int		ft_strncmp(char	*s1, char	*s2, unsigned int n);
-char	*ft_strdup(const char *str);
+char	*ft_strdup(char *str);
 char	**ft_split(char const *s, char c);
 char	*ft_strchr(const char *str, int character);
 char	*ft_strjoin(char const *s1, char const *s2);
