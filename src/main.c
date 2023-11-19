@@ -6,7 +6,7 @@
 /*   By: mstrba <mstrba@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 17:22:58 by mstrba            #+#    #+#             */
-/*   Updated: 2023/11/19 18:50:12 by mstrba           ###   ########.fr       */
+/*   Updated: 2023/11/19 20:25:24 by mstrba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,11 @@ int	main(int argc, char	**argv)
 		map_coordinates = fdf_read_map(fd);
 	else
 		fdf_corrupted_file();
-
+	for (int i = 0; i < 2; ++i)
+	{
+		printf("This is X cordinate >> %d", map_coordinates[i][0]);
+		printf("This is Y cordinate >> %d", map_coordinates[i][1]);
+		printf("This is Z cordinate >> %d", map_coordinates[i][2]);
+	}
 	return (EXIT_SUCCESS);
 }
