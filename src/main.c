@@ -6,7 +6,7 @@
 /*   By: mstrba <mstrba@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 17:22:58 by mstrba            #+#    #+#             */
-/*   Updated: 2023/11/20 16:22:42 by mstrba           ###   ########.fr       */
+/*   Updated: 2023/11/20 16:45:40 by mstrba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ void	print_cordinates(t_point *cordinates)
 	}
 }
 
+
+// INSTALL MLX LIBRARY
 int	main(int argc, char **argv)
 {
 	int		fd;
@@ -37,7 +39,7 @@ int	main(int argc, char **argv)
 		map_coordinates = fdf_read_map(fd);
 	else
 		fdf_corrupted_file();
-	print_cordinates(map_coordinates);
 	free_map_coordinates(&map_coordinates);
+	fdf_bresenham_algorithm();
 	return (EXIT_SUCCESS);
 }

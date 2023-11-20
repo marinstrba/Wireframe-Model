@@ -2,7 +2,12 @@
 
 # Compiler and flags
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -Ilib -fPIC
+CFLAGS = -Wall -Wextra -Werror -Iinclude -fPIC
+
+# Additional libraries and flags for main.c
+LDFLAGS = -ldl -lglfw -pthread -lm
+LIBS = libmlx42.a
+INCLUDES = -Iinclude
 
 # Directories
 SRCDIR = src
@@ -16,12 +21,19 @@ OBJ = $(SRC:.c=.o)
 # Name of the final executable
 EXECUTABLE = myprogram
 
+# Main.c specific executable
+MAIN_EXECUTABLE = main
+
 # Default target
-all: libft $(EXECUTABLE)
+all: libft $(EXECUTABLE) $(MAIN_EXECUTABLE)
 
 # Compile the main program
 $(EXECUTABLE): $(OBJ)
 	$(CC) $(CFLAGS) -o $@ $^ -L$(LIBFTDIR) -lft
+
+# Compile main.c with additional libraries
+$(MAIN_EXECUTABLE): main.c
+	$(CC) $(CFLAGS) $(INCLUDES) -o $@ $< $(LIBS) $(LDFLAGS)
 
 # Rule to make objects
 %.o: %.c
@@ -38,7 +50,7 @@ clean:
 
 # Full clean (objects and executables)
 fclean: clean
-	rm -f $(EXECUTABLE)
+	rm -f $(EXECUTABLE) $(MAIN_EXECUTABLE)
 	$(MAKE) -C $(LIBFTDIR) fclean
 
 # Rebuild everything
