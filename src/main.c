@@ -6,11 +6,41 @@
 /*   By: mstrba <mstrba@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 17:22:58 by mstrba            #+#    #+#             */
-/*   Updated: 2023/11/19 20:25:24 by mstrba           ###   ########.fr       */
+/*   Updated: 2023/11/20 12:30:54 by mstrba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../lib/fdf.h"
+
+void print_cordinates(int **cordinates, int total_elements) {
+    if (cordinates == NULL) {
+        printf("No coordinates to print.\n");
+        return;
+    }
+
+    for (int i = 0; i < total_elements; ++i) {
+        if (cordinates[i] != NULL) {
+            printf("Coordinates of element %d: X = %d, Y = %d, Z = %d\n", 
+                   i, cordinates[i][0], cordinates[i][1], cordinates[i][2]);
+        } else {
+            printf("Coordinates of element %d: NULL\n", i);
+        }
+    }
+}
+
+void free_map_coordinates(int ***map_coordinates, int total_elements) {
+    if (map_coordinates == NULL || *map_coordinates == NULL) {
+        return; // Nothing to free
+    }
+
+    for (int i = 0; i < total_elements; ++i) {
+        free((*map_coordinates)[i]); // Free each sub-array
+    }
+
+    free(*map_coordinates); // Free the array of pointers
+    *map_coordinates = NULL; // Set the pointer to NULL to prevent use-after-free
+}
+
 
 int	main(int argc, char	**argv)
 {
@@ -24,11 +54,7 @@ int	main(int argc, char	**argv)
 		map_coordinates = fdf_read_map(fd);
 	else
 		fdf_corrupted_file();
-	for (int i = 0; i < 2; ++i)
-	{
-		printf("This is X cordinate >> %d", map_coordinates[i][0]);
-		printf("This is Y cordinate >> %d", map_coordinates[i][1]);
-		printf("This is Z cordinate >> %d", map_coordinates[i][2]);
-	}
+	print_cordinates(map_coordinates, 4);
+	free_map_coordinates(&map_coordinates, 3);
 	return (EXIT_SUCCESS);
 }
