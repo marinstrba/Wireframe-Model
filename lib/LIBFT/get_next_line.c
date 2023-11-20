@@ -6,11 +6,11 @@
 /*   By: mstrba <mstrba@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 16:50:27 by mstrba            #+#    #+#             */
-/*   Updated: 2023/11/19 20:27:27 by mstrba           ###   ########.fr       */
+/*   Updated: 2023/11/20 15:14:39 by mstrba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "libft.h"
 
 char	*ft_realloc(char	*s1, char	*s2)
 {
@@ -55,7 +55,7 @@ char	*ft_read_line(char	*buffer)
 		return (NULL);
 	while (buffer[index] && buffer[index] != '\n')
 		index++;
-	line = ft_calloc(index + 2, sizeof(char));
+	line = calloc(index + 2, sizeof(char));
 	if (!line)
 		return (NULL);
 	while (l_index < index)
@@ -63,7 +63,7 @@ char	*ft_read_line(char	*buffer)
 		line[l_index] = buffer[l_index];
 		l_index++;
 	}
-	if (buffer[l_index] || buffer[l_index] == '\n')
+	if (buffer[l_index] && buffer[l_index] == '\n')
 		line[l_index++] = '\n';
 	line[l_index] = '\0';
 	return (line);
@@ -76,11 +76,11 @@ char	*ft_read_file(int fd, char	*res)
 
 	bytes_read = 1;
 	if (!res)
-		res = ft_calloc(1, sizeof(char));
-	buffer = ft_calloc(BUFFER_SIZE + 1, sizeof(char));
+		res = calloc(1, sizeof(char));
+	buffer = calloc(BUFFER_SIZE + 1, sizeof(char));
 	if (!res || !buffer)
 		return (NULL);
-	while (bytes_read != 0)
+	while (bytes_read > 0)
 	{
 		bytes_read = read(fd, buffer, BUFFER_SIZE);
 		if (bytes_read < 0)

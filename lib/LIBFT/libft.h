@@ -6,7 +6,7 @@
 /*   By: mstrba <mstrba@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 14:51:02 by mstrba            #+#    #+#             */
-/*   Updated: 2023/11/19 20:28:09 by mstrba           ###   ########.fr       */
+/*   Updated: 2023/11/20 10:20:12 by mstrba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,11 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdio.h>
+# include <fcntl.h>
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
 
 /*-----------------------LISTS--------------------*/
 
@@ -86,5 +91,9 @@ void	ft_putnbr_fd(int n, int fd);
 void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
+
+/*GNL*/
+
+char	*get_next_line(int fd);
 
 #endif

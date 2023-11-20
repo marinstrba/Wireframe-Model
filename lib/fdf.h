@@ -6,7 +6,7 @@
 /*   By: mstrba <mstrba@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 17:39:15 by mstrba            #+#    #+#             */
-/*   Updated: 2023/11/19 20:05:49 by mstrba           ###   ########.fr       */
+/*   Updated: 2023/11/20 16:21:29 by mstrba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,16 @@
 # include <fcntl.h>
 # include <math.h>
 
+/*---------------------Structs--------------------------*/
+
+typedef struct s_point
+{
+	int				x_map;
+	int				y_map;
+	int				z_map;
+	struct s_point	*next;
+}		t_point;
+
 /*-------------------Error messages---------------------*/
 
 void	fdf_failed_malloc(void);
@@ -33,9 +43,15 @@ int		fdf_open_file(char	**argv);
 
 /*-----------------------Read map-----------------------*/
 
-int		**fdf_read_map(int fd);
-void	fdf_reallocate_cordinates(int	***cordinates, int *bytes_allocated);
-void	convert_to_cordinates(int	***cordinates, char	*line, int y_cordinate);
+t_point	*fdf_read_map(int fd);
+void	convert_cordinates(char	*line, t_point	**head, int y);
 
+/*Lists*/
+void	fdf_add_node(t_point	**new_node);
+void	fdf_add_node_last(t_point	*head, t_point	*node);
+
+/*-----------------------Memory-------------------------*/
+
+void	free_map_coordinates(t_point **map_coordinates);
 
 #endif

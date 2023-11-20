@@ -6,7 +6,7 @@
 /*   By: mstrba <mstrba@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 17:09:50 by mstrba            #+#    #+#             */
-/*   Updated: 2023/10/21 12:58:28 by mstrba           ###   ########.fr       */
+/*   Updated: 2023/11/20 12:31:39 by mstrba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,15 @@
 
 void	*ft_calloc(size_t num_elements, size_t element_size)
 {
-	unsigned char	*res;
-	size_t			index;
-	size_t			total;
+	unsigned char	*memory;
+	unsigned int	max_int;
 
-	index = 0;
-	total = num_elements * element_size;
-	res = (unsigned char *) malloc(total);
-	if (res == NULL)
+	max_int = 2147483647;
+	if (num_elements > max_int && element_size > max_int)
 		return (NULL);
-	while (index < total)
-	{
-		res[index] = 0;
-		index++;
-	}
-	return ((void *)res);
+	memory = (unsigned char *) malloc(num_elements * element_size);
+	if (memory == NULL)
+		return (NULL);
+	ft_bzero(memory, num_elements * element_size);
+	return ((void *) memory);
 }

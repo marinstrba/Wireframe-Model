@@ -6,46 +6,29 @@
 /*   By: mstrba <mstrba@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 17:22:58 by mstrba            #+#    #+#             */
-/*   Updated: 2023/11/20 12:30:54 by mstrba           ###   ########.fr       */
+/*   Updated: 2023/11/20 16:22:42 by mstrba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../lib/fdf.h"
+#include "../lib/LIBFT/libft.h"
 
-void print_cordinates(int **cordinates, int total_elements) {
-    if (cordinates == NULL) {
-        printf("No coordinates to print.\n");
-        return;
-    }
-
-    for (int i = 0; i < total_elements; ++i) {
-        if (cordinates[i] != NULL) {
-            printf("Coordinates of element %d: X = %d, Y = %d, Z = %d\n", 
-                   i, cordinates[i][0], cordinates[i][1], cordinates[i][2]);
-        } else {
-            printf("Coordinates of element %d: NULL\n", i);
-        }
-    }
-}
-
-void free_map_coordinates(int ***map_coordinates, int total_elements) {
-    if (map_coordinates == NULL || *map_coordinates == NULL) {
-        return; // Nothing to free
-    }
-
-    for (int i = 0; i < total_elements; ++i) {
-        free((*map_coordinates)[i]); // Free each sub-array
-    }
-
-    free(*map_coordinates); // Free the array of pointers
-    *map_coordinates = NULL; // Set the pointer to NULL to prevent use-after-free
-}
-
-
-int	main(int argc, char	**argv)
+void	print_cordinates(t_point *cordinates)
 {
-	int	fd;
-	int	**map_coordinates;
+    t_point *current = cordinates;
+    int i = 0;
+    while (current)
+	{
+        printf("Coordinates of element %d: X = %d, Y = %d, Z = %d\n", 
+               i++, current->x_map, current->y_map, current->z_map);
+        current = current->next;
+	}
+}
+
+int	main(int argc, char **argv)
+{
+	int		fd;
+	t_point	*map_coordinates;
 
 	if (argc != 2)
 		fdf_diff_num_of_args();
@@ -54,7 +37,7 @@ int	main(int argc, char	**argv)
 		map_coordinates = fdf_read_map(fd);
 	else
 		fdf_corrupted_file();
-	print_cordinates(map_coordinates, 4);
-	free_map_coordinates(&map_coordinates, 3);
+	print_cordinates(map_coordinates);
+	free_map_coordinates(&map_coordinates);
 	return (EXIT_SUCCESS);
 }

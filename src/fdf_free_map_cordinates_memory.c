@@ -1,21 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf_open_file.c                                    :+:      :+:    :+:   */
+/*   fdf_free_map_cordinates_memory.c                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mstrba <mstrba@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/19 18:15:01 by mstrba            #+#    #+#             */
-/*   Updated: 2023/11/19 20:48:20 by mstrba           ###   ########.fr       */
+/*   Created: 2023/11/20 13:47:05 by mstrba            #+#    #+#             */
+/*   Updated: 2023/11/20 13:48:50 by mstrba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../lib/fdf.h"
+#include "../lib/LIBFT/libft.h"
 
-int	fdf_open_file(char	**argv)
+void	free_map_coordinates(t_point **map_coordinates)
 {
-	int	fd;
+	t_point	*current;
+	t_point	*next;
 
-	fd = open(argv[1], O_RDONLY);
-	return (fd);
+	current = *map_coordinates;
+	while (current)
+	{
+		next = current->next;
+		free(current);
+		current = next;
+	}
+	*map_coordinates = NULL;
 }
