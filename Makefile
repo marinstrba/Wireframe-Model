@@ -1,20 +1,21 @@
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -Iinclude -fPIC
+CFLAGS = -Wall -Wextra -Werror -fPIC
 
-LDFLAGS = -ldl -pthread -lm
+LDFLAGS = -ldl -pthread -lm -L$(MINILIBXDIR) -lmlx -lXext -lX11
 
-INCLUDES = -Ilib/LIBFT -Ilib
+INCLUDES = -Ilib/LIBFT -Ilib -I$(MINILIBXDIR)
 
 SRCDIR = src
 LIBDIR = lib
 LIBFTDIR = $(LIBDIR)/LIBFT
+MINILIBXDIR = $(LIBDIR)/minilibx-linux
 
 SRC = $(wildcard $(SRCDIR)/*.c)
 OBJ = $(SRC:.c=.o)
 
 EXECUTABLE = myprogram
 
-all: libft $(EXECUTABLE)
+all: libft minilibx $(EXECUTABLE)
 
 $(EXECUTABLE): $(OBJ)
 	$(CC) $(CFLAGS) $(INCLUDES) -o $@ $^ -L$(LIBFTDIR) -lft $(LDFLAGS)
@@ -25,14 +26,19 @@ $(EXECUTABLE): $(OBJ)
 libft:
 	$(MAKE) -C $(LIBFTDIR)
 
+minilibx:
+	$(MAKE) -C $(MINILIBXDIR)
+
 clean:
 	rm -f $(SRCDIR)/*.o
 	$(MAKE) -C $(LIBFTDIR) clean
+	$(MAKE) -C $(MINILIBXDIR) clean
 
 fclean: clean
 	rm -f $(EXECUTABLE)
 	$(MAKE) -C $(LIBFTDIR) fclean
+	$(MAKE) -C $(MINILIBXDIR) clean
 
 re: fclean all
 
-.PHONY: all libft clean fclean re
+.PHONY: all libft minilibx clean fclean re

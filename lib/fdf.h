@@ -6,7 +6,7 @@
 /*   By: mstrba <mstrba@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 17:39:15 by mstrba            #+#    #+#             */
-/*   Updated: 2023/11/20 16:21:29 by mstrba           ###   ########.fr       */
+/*   Updated: 2023/11/21 19:33:50 by mstrba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ typedef struct s_point
 	int				x_map;
 	int				y_map;
 	int				z_map;
+	void			*mlx_ptr;
+	void			*win_ptr;
 	struct s_point	*next;
 }		t_point;
 
