@@ -6,7 +6,7 @@
 /*   By: mstrba <mstrba@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 14:51:02 by mstrba            #+#    #+#             */
-/*   Updated: 2023/11/20 10:20:12 by mstrba           ###   ########.fr       */
+/*   Updated: 2023/11/21 21:39:34 by mstrba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,28 +20,12 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include <fcntl.h>
+# include <stdarg.h>
+# include <stdint.h>
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 42
 # endif
-
-/*-----------------------LISTS--------------------*/
-
-typedef struct s_list
-{
-	void			*content;
-	struct s_list	*next;
-}					t_list;
-
-int		ft_lstsize(t_list *lst);
-t_list	*ft_lstlast(t_list *lst);
-t_list	*ft_lstnew(void *content);
-void	ft_lstadd_back(t_list **lst, t_list *new);
-void	ft_lstadd_front(t_list **lst, t_list *new);
-void	ft_lstiter(t_list *lst, void (*f)(void *));
-void	ft_lstclear(t_list **lst, void (*del)(void*));
-void	ft_lstdelone(t_list *lst, void (*del)(void*));
-t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
 /*-----------------------CHARS-----------------------*/
 
@@ -92,8 +76,32 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 
-/*GNL*/
+/*------------------------GNL----------------------------*/
 
 char	*get_next_line(int fd);
+
+/*-----------------------Printf----------------------*/
+
+int		ft_putnbr(int nb);
+int		ft_putchar(char c);
+int		ft_putstr(char	*str);
+int		ft_pint(va_list args);
+int		ft_pstr(va_list args);
+int		ft_pdec(va_list args);
+int		ft_pexu(va_list args);
+int		ft_pvoid(va_list args);
+int		ft_pchar(va_list args);
+int		ft_phexl(va_list args);
+int		ft_pudec(va_list args);
+int		ft_puthex(uintptr_t n);
+int		ft_putunbr(unsigned int n);
+void	ft_print_num(char	*arr, int num);
+int		ft_printf(const char *format, ...);
+int		ft_check_format(char *str, int index);
+int		ft_puthexlu(unsigned int n, int check);
+int		ft_correct_format(char c, va_list args);
+int		ft_print_str(const char *format, va_list args);
+int		ft_print_format(char *str, int index, va_list args);
+size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 
 #endif

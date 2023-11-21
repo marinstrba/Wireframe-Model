@@ -6,7 +6,7 @@
 #    By: mstrba <mstrba@student.42prague.com>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/22 13:48:30 by mcombeau          #+#    #+#              #
-#    Updated: 2023/11/20 09:49:25 by mstrba           ###   ########.fr        #
+#    Updated: 2023/11/21 21:22:54 by mstrba           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,30 +48,39 @@ SRC = ft_isalpha \
 	ft_putstr_fd \
 	ft_putendl_fd \
 	ft_putnbr_fd \
-	get_next_line
-BONUS_SRC = ft_lstnew \
-	ft_lstadd_front \
-	ft_lstsize \
-	ft_lstlast \
-	ft_lstadd_back \
-	ft_lstdelone \
-	ft_lstclear \
-	ft_lstiter \
-	ft_lstmap  
+	get_next_line \
+	ft_putchar \
+	ft_printf \
+	ft_print_format \
+	ft_check_format \
+	ft_correct_format \
+	ft_print_str \
+	ft_pdec \
+	ft_pint \
+	ft_pexu \
+	ft_pvoid \
+	ft_pchar \
+	ft_phexl \
+	ft_pstr \
+	ft_pudec \
+	ft_putchar \
+	ft_strlcpy \
+	ft_putnbr \
+	ft_print_num \
+	ft_puthex \
+	ft_putstr \
+	ft_putunbr \
+	ft_puthexlu \
 
 SRCS = $(addsuffix .c, $(SRC))
 OBJS = $(addsuffix .o, $(SRC))
-BONUS_SRCS = $(addsuffix .c, $(BONUS_SRC))
-BONUS_OBJS = $(addsuffix .o, $(BONUS_SRC))
+
 
 .c.o: $(SRCS) $(BONUS_SRCS)
 	$(CC) $(CFLAGS) -c -o $@ $<
 
 $(NAME): $(OBJS)
 	$(AR) $@ $^
-
-bonus: $(OBJS) $(BONUS_OBJS)
-	$(AR) $(NAME) $^
 
 all: $(NAME)
 

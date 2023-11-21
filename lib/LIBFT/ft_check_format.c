@@ -1,23 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_check_format.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mstrba <mstrba@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/25 18:35:56 by mstrba            #+#    #+#             */
-/*   Updated: 2023/11/21 21:22:07 by mstrba           ###   ########.fr       */
+/*   Created: 2023/10/25 13:05:42 by mstrba            #+#    #+#             */
+/*   Updated: 2023/11/21 21:40:10 by mstrba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *str)
+int	ft_check_format(char *str, int index)
 {
-	size_t	index;
-
-	index = 0;
-	while (str[index] != '\0')
-		index++;
-	return (index);
+	if (str[index] == 37)
+		return (1);
+	return (0);
 }

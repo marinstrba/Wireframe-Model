@@ -1,23 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_pstr.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mstrba <mstrba@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/25 18:35:56 by mstrba            #+#    #+#             */
-/*   Updated: 2023/11/21 21:22:07 by mstrba           ###   ########.fr       */
+/*   Created: 2023/10/25 17:21:19 by mstrba            #+#    #+#             */
+/*   Updated: 2023/11/21 21:23:04 by mstrba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *str)
+int	ft_pstr(va_list args)
 {
-	size_t	index;
+	char	*str;
+	int		res;
 
-	index = 0;
-	while (str[index] != '\0')
-		index++;
-	return (index);
+	res = 0;
+	str = va_arg(args, char *);
+	res += ft_putstr(str);
+	return (res);
 }

@@ -1,19 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
+/*   ft_pvoid.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mstrba <mstrba@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/24 16:12:59 by mstrba            #+#    #+#             */
-/*   Updated: 2023/10/24 16:20:34 by mstrba           ###   ########.fr       */
+/*   Created: 2023/10/25 17:21:27 by mstrba            #+#    #+#             */
+/*   Updated: 2023/11/21 21:21:47 by mstrba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstdelone(t_list *lst, void (*del)(void*))
+int	ft_pvoid(va_list args)
 {
-	if (lst)
-		del(lst);
+	void	*p;
+	int		res;
+
+	res = 0;
+	p = va_arg(args, void *);
+	if (p == NULL)
+	{
+		ft_putstr("(nil)");
+		return (5);
+	}
+	res += ft_putstr("0x");
+	res += ft_puthex((uintptr_t) p);
+	return (res);
 }

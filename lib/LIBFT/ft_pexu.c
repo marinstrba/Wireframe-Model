@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_pexu.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mstrba <mstrba@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/25 18:35:56 by mstrba            #+#    #+#             */
-/*   Updated: 2023/11/21 21:22:07 by mstrba           ###   ########.fr       */
+/*   Created: 2023/10/25 17:21:00 by mstrba            #+#    #+#             */
+/*   Updated: 2023/11/21 21:23:04 by mstrba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *str)
+int	ft_pexu(va_list args)
 {
-	size_t	index;
+	unsigned int	n;
+	int				res;
 
-	index = 0;
-	while (str[index] != '\0')
-		index++;
-	return (index);
+	n = va_arg(args, unsigned int);
+	res = ft_puthexlu(n, 2);
+	return (res);
 }

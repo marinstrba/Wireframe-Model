@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_pudec.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mstrba <mstrba@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/24 15:51:36 by mstrba            #+#    #+#             */
-/*   Updated: 2023/10/24 15:57:26 by mstrba           ###   ########.fr       */
+/*   Created: 2023/10/25 17:21:23 by mstrba            #+#    #+#             */
+/*   Updated: 2023/11/21 21:21:24 by mstrba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstnew(void *content)
+int	ft_pudec(va_list args)
 {
-	t_list	*new;
+	unsigned int	n;
+	int				res;
 
-	new = (t_list *) malloc(sizeof(t_list));
-	if (!new)
-		return (NULL);
-	new->content = content;
-	new->next = NULL;
-	return (new);
+	n = va_arg(args, unsigned int);
+	res = ft_putunbr(n);
+	return (res);
 }

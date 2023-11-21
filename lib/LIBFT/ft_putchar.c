@@ -1,28 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mstrba <mstrba@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/24 16:02:32 by mstrba            #+#    #+#             */
-/*   Updated: 2023/10/24 16:04:17 by mstrba           ###   ########.fr       */
+/*   Created: 2023/10/25 13:07:12 by mstrba            #+#    #+#             */
+/*   Updated: 2023/11/21 21:21:28 by mstrba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_lstsize(t_list *lst)
+int	ft_putchar(char c)
 {
-	t_list	*new;
-	int		cnt;
-
-	new = lst;
-	cnt = 0;
-	while (new)
-	{
-		cnt++;
-		new = new->next;
-	}
-	return (cnt);
+	write(1, &c, 1);
+	return (1);
 }

@@ -1,31 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*   ft_pdec.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mstrba <mstrba@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/24 16:21:48 by mstrba            #+#    #+#             */
-/*   Updated: 2023/10/24 16:34:22 by mstrba           ###   ########.fr       */
+/*   Created: 2023/10/25 17:20:56 by mstrba            #+#    #+#             */
+/*   Updated: 2023/11/21 21:23:04 by mstrba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(void*))
+int	ft_pdec(va_list args)
 {
-	t_list	*current;
-	t_list	*next;
+	int	n;
+	int	res;
 
-	if (!lst || !*lst || ! del)
-		return ;
-	current = *lst;
-	while (current)
-	{
-		next = current->next;
-		del(current->content);
-		free(current);
-		current = next;
-	}
-	*lst = NULL;
+	n = va_arg(args, int);
+	res = ft_putnbr(n);
+	return (res);
 }

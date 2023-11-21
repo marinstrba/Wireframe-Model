@@ -6,7 +6,7 @@
 /*   By: mstrba <mstrba@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 17:39:15 by mstrba            #+#    #+#             */
-/*   Updated: 2023/11/21 19:33:50 by mstrba           ###   ########.fr       */
+/*   Updated: 2023/11/21 21:44:06 by mstrba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 # include <stdio.h>
 # include <fcntl.h>
 # include <math.h>
+# include "LIBFT/libft.h"
+# include "minilibx-linux/mlx.h"
 
 /*---------------------Structs--------------------------*/
 
@@ -48,12 +50,17 @@ int		fdf_open_file(char	**argv);
 t_point	*fdf_read_map(int fd);
 void	convert_cordinates(char	*line, t_point	**head, int y);
 
+/*Draw*/
+void	fdf_draw(t_point	*data);
+
 /*Lists*/
 void	fdf_add_node(t_point	**new_node);
 void	fdf_add_node_last(t_point	*head, t_point	*node);
 
+
+
 /*-----------------------Memory-------------------------*/
 
-void	free_map_coordinates(t_point **map_coordinates);
+void	free_data(t_point **map_coordinates);
 
 #endif

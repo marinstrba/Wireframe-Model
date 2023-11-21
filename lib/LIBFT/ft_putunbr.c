@@ -1,32 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   ft_putunbr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mstrba <mstrba@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/24 16:07:38 by mstrba            #+#    #+#             */
-/*   Updated: 2023/10/24 16:16:49 by mstrba           ###   ########.fr       */
+/*   Created: 2023/10/25 17:54:18 by mstrba            #+#    #+#             */
+/*   Updated: 2023/11/21 21:21:44 by mstrba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+int	ft_putunbr(unsigned int n)
 {
-	t_list	*current;
+	int	sum;
 
-	if (!lst || !new)
-		return ;
-	if (*lst == NULL)
+	sum = 0;
+	if (n >= 10)
 	{
-		*lst = new;
-		return ;
+		sum += ft_putunbr(n / 10);
+		sum += ft_putchar(n % 10 + '0');
 	}
-	current = *lst;
-	while (current->next != NULL)
+	else
 	{
-		current = current->next;
+		sum += ft_putchar(n + '0');
 	}
-	current->next = new;
+	return (sum);
 }

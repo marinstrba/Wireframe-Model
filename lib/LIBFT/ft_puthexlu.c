@@ -1,23 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_puthexlu.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mstrba <mstrba@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/25 18:35:56 by mstrba            #+#    #+#             */
-/*   Updated: 2023/11/21 21:22:07 by mstrba           ###   ########.fr       */
+/*   Created: 2023/10/25 18:14:29 by mstrba            #+#    #+#             */
+/*   Updated: 2023/11/21 21:21:35 by mstrba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *str)
+int	ft_puthexlu(unsigned int n, int check)
 {
-	size_t	index;
+	char	*hex_digits;
+	int		sum;
 
-	index = 0;
-	while (str[index] != '\0')
-		index++;
-	return (index);
+	sum = 0;
+	if (check == 1)
+		hex_digits = "0123456789abcdef";
+	else
+		hex_digits = "0123456789ABCDEF";
+	if (n >= 16)
+	{
+		sum += ft_puthexlu(n / 16, check);
+		sum += ft_putchar(hex_digits[(n % 16)]);
+	}
+	else
+	{
+		sum += ft_putchar(hex_digits[n]);
+	}
+	return (sum);
 }

@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast.c                                       :+:      :+:    :+:   */
+/*   ft_pint.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mstrba <mstrba@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/24 16:04:59 by mstrba            #+#    #+#             */
-/*   Updated: 2023/10/24 16:09:17 by mstrba           ###   ########.fr       */
+/*   Created: 2023/10/25 17:21:13 by mstrba            #+#    #+#             */
+/*   Updated: 2023/11/21 21:23:04 by mstrba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstlast(t_list *lst)
+int	ft_pint(va_list args)
 {
-	t_list	*cnt;
+	int	n;
+	int	res;
 
-	if (!lst)
-		return (NULL);
-	cnt = lst;
-	while (cnt->next != NULL)
-	{
-		cnt = cnt->next;
-	}
-	return (cnt);
+	n = va_arg(args, int);
+	res = ft_putnbr(n);
+	return (res);
 }

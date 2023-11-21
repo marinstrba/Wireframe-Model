@@ -1,27 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstiter.c                                       :+:      :+:    :+:   */
+/*   ft_print_format.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mstrba <mstrba@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/24 16:23:03 by mstrba            #+#    #+#             */
-/*   Updated: 2023/10/24 16:28:27 by mstrba           ###   ########.fr       */
+/*   Created: 2023/10/25 13:06:26 by mstrba            #+#    #+#             */
+/*   Updated: 2023/11/21 21:23:04 by mstrba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstiter(t_list *lst, void (*f)(void *))
+int	ft_print_format(char *str, int index, va_list args)
 {
-	t_list	*current;
+	char	set[11];
+	size_t	i;
+	int		sum;
 
-	if (!lst)
-		return ;
-	current = lst;
-	while (current)
+	i = 0;
+	index++;
+	sum = 0;
+	ft_strlcpy(set, "cspdiuxX%%", 11);
+	while (set[i] != '\0')
 	{
-		f(current->content);
-		current = current->next;
+		if (set[i] == str[index])
+		{
+			sum = ft_correct_format(set[i], args);
+			break ;
+		}
+		i++;
 	}
+	return (sum);
 }
