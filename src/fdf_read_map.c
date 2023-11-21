@@ -6,12 +6,11 @@
 /*   By: mstrba <mstrba@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 17:50:23 by mstrba            #+#    #+#             */
-/*   Updated: 2023/11/20 16:32:31 by mstrba           ###   ########.fr       */
+/*   Updated: 2023/11/21 21:44:14 by mstrba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../lib/fdf.h"
-#include "../lib/LIBFT/libft.h"
 
 void	fdf_add_node(t_point	**new_node)
 {
