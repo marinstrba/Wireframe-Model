@@ -6,7 +6,7 @@
 /*   By: mstrba <mstrba@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 17:39:15 by mstrba            #+#    #+#             */
-/*   Updated: 2023/11/21 21:44:06 by mstrba           ###   ########.fr       */
+/*   Updated: 2023/11/22 12:56:37 by mstrba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,18 @@ typedef struct s_point
 	int				x_map;
 	int				y_map;
 	int				z_map;
-	void			*mlx_ptr;
-	void			*win_ptr;
 	struct s_point	*next;
 }		t_point;
+
+typedef struct s_additional
+{
+	int				height;
+	int				width;
+	int				zoom;
+	void			*mlx_ptr;
+	void			*win_ptr;
+}		t_additional;
+
 
 /*-------------------Error messages---------------------*/
 
@@ -47,11 +55,11 @@ int		fdf_open_file(char	**argv);
 
 /*-----------------------Read map-----------------------*/
 
-t_point	*fdf_read_map(int fd);
+t_point	*fdf_read_map(int fd, t_additional	**dataset);
 void	convert_cordinates(char	*line, t_point	**head, int y);
 
 /*Draw*/
-void	fdf_draw(t_point	*data);
+void	fdf_draw(t_point	*data, t_additional	*dataset);
 
 /*Lists*/
 void	fdf_add_node(t_point	**new_node);

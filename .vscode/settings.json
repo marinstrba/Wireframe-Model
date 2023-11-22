@@ -7,7 +7,9 @@
 		"span": "c",
 		"utility": "c",
 		"algorithm": "c",
-		"libft.h": "c"
+		"libft.h": "c",
+		"fdf.h": "c",
+		"string": "c"
 	},
 	"C_Cpp.errorSquiggles": "disabled"
 }

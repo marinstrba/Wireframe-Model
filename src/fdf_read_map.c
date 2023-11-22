@@ -6,7 +6,7 @@
 /*   By: mstrba <mstrba@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 17:50:23 by mstrba            #+#    #+#             */
-/*   Updated: 2023/11/21 21:44:14 by mstrba           ###   ########.fr       */
+/*   Updated: 2023/11/22 12:46:33 by mstrba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,9 @@ void	convert_cordinates(char	*line, t_point	**head, int y)
 	}
 }
 
-t_point	*fdf_read_map(int fd)
+
+
+t_point	*fdf_read_map(int fd, t_additional	**dataset)
 {
 	t_point	*head;
 	char	*line;
@@ -68,9 +70,12 @@ t_point	*fdf_read_map(int fd)
 		line = get_next_line(fd);
 		if (!line)
 			break ;
+		if (((*dataset)->width) == 0)
+			(*dataset)->width = (ft_strlen(line) / 2);
 		convert_cordinates(line, &head, y_cordinate);
 		free(line);
 		y_cordinate++;
 	}
+	(*dataset)->height = y_cordinate;
 	return (head);
 }
