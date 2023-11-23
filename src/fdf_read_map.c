@@ -6,7 +6,7 @@
 /*   By: mstrba <mstrba@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 17:50:23 by mstrba            #+#    #+#             */
-/*   Updated: 2023/11/22 12:46:33 by mstrba           ###   ########.fr       */
+/*   Updated: 2023/11/22 15:45:51 by mstrba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ t_point	*fdf_read_map(int fd, t_additional	**dataset)
 {
 	t_point	*head;
 	char	*line;
+	char	**chars;
 	int		y_cordinate;
 
 	head = NULL;
@@ -71,7 +72,15 @@ t_point	*fdf_read_map(int fd, t_additional	**dataset)
 		if (!line)
 			break ;
 		if (((*dataset)->width) == 0)
-			(*dataset)->width = (ft_strlen(line) / 2);
+		{
+			chars = ft_split(line, ' ');
+			int num_chars = 0;
+			while (chars[num_chars] != NULL)
+			{
+				num_chars++;
+			}
+			(*dataset)->width = num_chars;
+		}
 		convert_cordinates(line, &head, y_cordinate);
 		free(line);
 		y_cordinate++;
