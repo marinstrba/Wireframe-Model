@@ -9,7 +9,10 @@
 		"algorithm": "c",
 		"libft.h": "c",
 		"fdf.h": "c",
-		"string": "c"
+		"string": "c",
+		"cstdlib": "c",
+		"cmath": "c",
+		"unistd.h": "c"
 	},
 	"C_Cpp.errorSquiggles": "disabled"
 }
