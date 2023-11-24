@@ -6,7 +6,7 @@
 /*   By: mstrba <mstrba@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 17:39:15 by mstrba            #+#    #+#             */
-/*   Updated: 2023/11/23 18:37:42 by mstrba           ###   ########.fr       */
+/*   Updated: 2023/11/24 16:21:39 by mstrba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@
 # define KEY_DOWN 65364
 # define KEY_LEFT 65361
 # define KEY_RIGHT 65363
+# define MOUSE_SCROLL_UP 4
+# define MOUSE_SCROLL_DOWN 5
 
 
 /*---------------------Standart libs---------------------*/
@@ -84,10 +86,11 @@ void	fdf_diff_num_of_args(void);
 
 t_point	*fdf_read_map(int fd, t_additional	**dataset);
 void	convert_cordinates(char	*line, t_point	**head, int y);
+void	fdf_initialize_struct(t_additional	**data);
 
 /*------------------------Screen------------------------*/
 
-void	fdf_init_screen(t_point	**cordinates, t_additional	*dataset);
+void	fdf_init_screen(t_point	**cordinates, t_additional	*data);
 
 /*///////////////////DRAWING FUNCTIONS//////////////////*/
 
@@ -115,11 +118,20 @@ void	fdf_add_node_last(t_point	*head, t_point	*node);
 
 void	free_data(t_point **map_coordinates);
 
+/*-----------------------Colors-------------------------*/
+
+int		lerp(int start, int end, float t);
+int		get_red_component(int color);
+int		get_green_component(int color);
+int		get_blue_component(int color);
+int		combine_colors(int r, int g, int b);
+
+
 /*/////////////////////CONTROLS//////////////////////////*/
 
 /*------------------------Keys-------------------------*/
 
-int		fdf_controls_mouse_scroll(int mousecode, int x, int y, t_additional *dataset);
+int		fdf_controls_mouse(int mousecode, int x, int y, t_additional *dataset);
 int		fdf_controls_key_press(int keycode, t_additional *data);
 int		close_window(t_additional *data);
 

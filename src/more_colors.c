@@ -1,29 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf_free_map_cordinates_memory.c                   :+:      :+:    :+:   */
+/*   more_colors.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mstrba <mstrba@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/20 13:47:05 by mstrba            #+#    #+#             */
-/*   Updated: 2023/11/24 15:27:39 by mstrba           ###   ########.fr       */
+/*   Created: 2023/11/24 16:15:41 by mstrba            #+#    #+#             */
+/*   Updated: 2023/11/24 16:22:12 by mstrba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../lib/fdf.h"
 
-
-void	free_data(t_point **map_coordinates)
+int	lerp(int start, int end, float t)
 {
-	t_point	*current;
-	t_point	*next;
+	return (start + (int)(t * (end - start)));
+}
 
-	current = *map_coordinates;
-	while (current)
-	{
-		next = current->next;
-		free(current);
-		current = next;
-	}
-	*map_coordinates = NULL;
+int	get_red_component(int color)
+{
+	return ((color >> 16) & 0xFF);
+}
+
+int	get_green_component(int color)
+{
+	return ((color >> 8) & 0xFF);
+}
+
+int	get_blue_component(int color)
+{
+	return (color & 0xFF);
+}
+
+int	combine_colors(int r, int g, int b)
+{
+	return ((r << 16) | (g << 8) | b);
 }

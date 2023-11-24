@@ -1,29 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf_free_map_cordinates_memory.c                   :+:      :+:    :+:   */
+/*   fdf_initaliaze_struct.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mstrba <mstrba@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/20 13:47:05 by mstrba            #+#    #+#             */
-/*   Updated: 2023/11/24 15:27:39 by mstrba           ###   ########.fr       */
+/*   Created: 2023/11/24 15:00:33 by mstrba            #+#    #+#             */
+/*   Updated: 2023/11/24 15:27:38 by mstrba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../lib/fdf.h"
 
-
-void	free_data(t_point **map_coordinates)
+void	fdf_initialize_struct(t_additional	**data)
 {
-	t_point	*current;
-	t_point	*next;
-
-	current = *map_coordinates;
-	while (current)
-	{
-		next = current->next;
-		free(current);
-		current = next;
-	}
-	*map_coordinates = NULL;
+	(*data)->zoom = 2;
+	(*data)->screen_height = 600;
+	(*data)->screen_width = 800;
+	(*data)->full_screen = 0;
+	(*data)->shift_x = 370;
+	(*data)->shift_y = 150;
+	(*data)->color = 0xffffff;
 }

@@ -12,7 +12,8 @@
 		"string": "c",
 		"cstdlib": "c",
 		"cmath": "c",
-		"unistd.h": "c"
+		"unistd.h": "c",
+		"*.tcc": "c"
 	},
 	"C_Cpp.errorSquiggles": "disabled"
 }

@@ -1,29 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf_free_map_cordinates_memory.c                   :+:      :+:    :+:   */
+/*   fdf_close_window.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mstrba <mstrba@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/20 13:47:05 by mstrba            #+#    #+#             */
-/*   Updated: 2023/11/24 15:27:39 by mstrba           ###   ########.fr       */
+/*   Created: 2023/11/24 15:27:20 by mstrba            #+#    #+#             */
+/*   Updated: 2023/11/24 15:27:42 by mstrba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../lib/fdf.h"
 
-
-void	free_data(t_point **map_coordinates)
+int	close_window(t_additional *data)
 {
-	t_point	*current;
-	t_point	*next;
-
-	current = *map_coordinates;
-	while (current)
-	{
-		next = current->next;
-		free(current);
-		current = next;
-	}
-	*map_coordinates = NULL;
+	mlx_destroy_window(data->mlx_ptr, data->win_ptr);
+	return (0);
 }
