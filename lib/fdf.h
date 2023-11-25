@@ -6,7 +6,7 @@
 /*   By: mstrba <mstrba@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 17:39:15 by mstrba            #+#    #+#             */
-/*   Updated: 2023/11/25 11:19:13 by mstrba           ###   ########.fr       */
+/*   Updated: 2023/11/25 12:23:30 by mstrba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,43 +83,28 @@ typedef struct s_additional
 	t_point			*data;
 }		t_additional;
 
-/*----------------------Open files----------------------*/
-
-int		fdf_open_file(char	**argv);
-
-/*-------------------Error messages---------------------*/
-
-void	fdf_failed_malloc(void);
-void	fdf_corrupted_file(void);
-void	fdf_diff_num_of_args(void);
-
-/*-----------------------Read map-----------------------*/
+/*//////////////////////MAP-READER//////////////////////*/
 
 t_point	*fdf_read_map(int fd, t_additional	**dataset);
 void	convert_cordinates(char	*line, t_point	**head, int y);
-void	fdf_initialize_struct(t_additional	**data);
-
-/*------------------------Screen------------------------*/
-
-void	fdf_init_screen(t_point	**cordinates, t_additional	*data);
 
 /*///////////////////DRAWING FUNCTIONS//////////////////*/
 
 /*------------------------Draw--------------------------*/
+void	init_line_vars(t_line *line);
+void	draw_line(t_line *line, t_additional *dt);
 void	fdf_draw(t_point	*data, t_additional	*dataset);
+void	fdf_draw_down(t_point	*ptr1, t_point	*ptr2, t_additional	*data);
 void	fdf_bresenham(t_point *data, t_point	*ptr2, t_additional *dataset);
+void	calc_param(t_line *line, t_point *data, t_point *ptr, t_additional *ds);
 
 /*------------------------Menu---------------------------*/
 void	fdf_print_menu(t_additional	*dataset);
-
-/*-----------------------Rotation-----------------------*/
-void	isometric(int	*x, int	*y, int z);
-void	fdf_do_isometric(int keycode, t_additional *dataset);
-
-/*-----------------------Colors-----------------------*/
-
-int		get_elevation_color(int z, int minZ, int maxZ);
-void	find_min_max_z(t_point *head, int *minZ, int *maxZ);
+void	fdf_print_controls(t_additional	*data);
+void	fdf_print_map_info(t_additional	*data);
+void	fdf_isometric_mode(t_additional	*data);
+void	fdf_color_mode(t_additional	*data);
+void	fdf_other_controls(t_additional	*data);
 
 /*///////////////////////UTILS///////////////////////////*/
 
@@ -131,6 +116,26 @@ void	fdf_add_node_last(t_point	*head, t_point	*node);
 
 void	free_data(t_point **map_coordinates);
 
+/*-----------------------Rotation-----------------------*/
+void	isometric(int	*x, int	*y, int z);
+void	fdf_do_isometric(int keycode, t_additional *dataset);
+
+/*-------------------------Others------------------------*/
+
+void	fdf_initialize_struct(t_additional	**data);
+
+/*-------------------Error messages---------------------*/
+
+void	fdf_failed_malloc(void);
+void	fdf_corrupted_file(void);
+void	fdf_diff_num_of_args(void);
+
+/*----------------------Open files----------------------*/
+
+int		fdf_open_file(char	**argv);
+
+/*///////////////////////COLORS//////////////////////////*/
+
 /*-----------------------Colors-------------------------*/
 
 int		lerp(int start, int end, float t);
@@ -138,14 +143,22 @@ int		get_red_component(int color);
 int		get_green_component(int color);
 int		get_blue_component(int color);
 int		combine_colors(int r, int g, int b);
-
+int		get_elevation_color(int z, int minZ, int maxZ);
+void	find_min_max_z(t_point *head, int *minZ, int *maxZ);
 
 /*/////////////////////CONTROLS//////////////////////////*/
+
+/*------------------------Screen------------------------*/
+
+void	fdf_init_screen(t_point	**cordinates, t_additional	*data);
+void	fdf_full_screen(t_additional *dataset);
+void	fdf_fs_help(t_additional **dataset);
+int		close_window(t_additional *data);
 
 /*------------------------Keys-------------------------*/
 
 int		fdf_controls_mouse(int mousecode, int x, int y, t_additional *dataset);
 int		fdf_controls_key_press(int keycode, t_additional *data);
-int		close_window(t_additional *data);
+void	fdf_movement_keys(int keycode, t_additional *dataset);
 
 #endif

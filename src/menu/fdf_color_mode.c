@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf_bresenham.c                                    :+:      :+:    :+:   */
+/*   fdf_color_mode.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mstrba <mstrba@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/25 10:57:34 by mstrba            #+#    #+#             */
-/*   Updated: 2023/11/25 12:23:00 by mstrba           ###   ########.fr       */
+/*   Created: 2023/11/25 12:10:27 by mstrba            #+#    #+#             */
+/*   Updated: 2023/11/25 12:10:49 by mstrba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../lib/fdf.h"
 
-void	fdf_bresenham(t_point *data, t_point	*ptr2, t_additional *dataset)
+void	fdf_color_mode(t_additional	*data)
 {
-	t_line	line;
+	char	*menu;
 
-	calc_param(&line, data, ptr2, dataset);
-	draw_line(&line, dataset);
+	menu = "///COLOR THEME///";
+	mlx_string_put(data->mlx_ptr, data->win_ptr, 460, 50, 0x03fc35, menu);
 }

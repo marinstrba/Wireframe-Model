@@ -1,21 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf_bresenham.c                                    :+:      :+:    :+:   */
+/*   fdf_control_mouse.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mstrba <mstrba@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/25 10:57:34 by mstrba            #+#    #+#             */
-/*   Updated: 2023/11/25 12:23:00 by mstrba           ###   ########.fr       */
+/*   Created: 2023/11/25 12:18:51 by mstrba            #+#    #+#             */
+/*   Updated: 2023/11/25 12:19:10 by mstrba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../lib/fdf.h"
 
-void	fdf_bresenham(t_point *data, t_point	*ptr2, t_additional *dataset)
+int	fdf_controls_mouse(int mousecode, int x, int y, t_additional *dataset)
 {
-	t_line	line;
+	t_point	*data;
 
-	calc_param(&line, data, ptr2, dataset);
-	draw_line(&line, dataset);
+	(void)x;
+	(void)y;
+	data = dataset->data;
+	if (mousecode == 4)
+		dataset->zoom += 1;
+	else if (mousecode == 5)
+		dataset->zoom -= 1;
+	if (dataset->zoom < 1)
+		dataset->zoom = 1;
+	mlx_clear_window(dataset->mlx_ptr, dataset->win_ptr);
+	fdf_draw(data, dataset);
+	return (0);
 }
