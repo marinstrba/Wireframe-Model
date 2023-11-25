@@ -6,7 +6,7 @@
 /*   By: mstrba <mstrba@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 10:59:11 by mstrba            #+#    #+#             */
-/*   Updated: 2023/11/24 15:22:42 by mstrba           ###   ########.fr       */
+/*   Updated: 2023/11/25 10:56:18 by mstrba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ void	fdf_print_controls(t_additional	*data)
 	mlx_string_put(data->mlx_ptr, data->win_ptr, 50, 70, 0x03fc35, move_right);
 	mlx_string_put(data->mlx_ptr, data->win_ptr, 50, 80, 0x03fc35, move_down);
 	mlx_string_put(data->mlx_ptr, data->win_ptr, 50, 90, 0x03fc35, move_up);
-
 }
 
 void	fdf_print_map_info(t_additional	*data)

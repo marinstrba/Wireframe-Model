@@ -6,12 +6,11 @@
 /*   By: mstrba <mstrba@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 13:47:05 by mstrba            #+#    #+#             */
-/*   Updated: 2023/11/24 15:27:39 by mstrba           ###   ########.fr       */
+/*   Updated: 2023/11/25 10:56:01 by mstrba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../lib/fdf.h"
-
 
 void	free_data(t_point **map_coordinates)
 {

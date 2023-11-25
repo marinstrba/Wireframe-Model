@@ -6,7 +6,7 @@
 /*   By: mstrba <mstrba@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 11:31:00 by mstrba            #+#    #+#             */
-/*   Updated: 2023/11/24 15:27:10 by mstrba           ###   ########.fr       */
+/*   Updated: 2023/11/25 10:57:02 by mstrba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,8 +84,6 @@ void	fdf_full_screen(t_additional *dataset)
 	fdf_fs_help(&dataset);
 	fdf_init_screen(&data, dataset);
 }
-
-
 
 int	fdf_controls_key_press(int keycode, t_additional *dataset)
 {
