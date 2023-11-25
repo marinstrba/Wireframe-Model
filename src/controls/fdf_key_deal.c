@@ -6,7 +6,7 @@
 /*   By: mstrba <mstrba@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 11:31:00 by mstrba            #+#    #+#             */
-/*   Updated: 2023/11/25 10:57:02 by mstrba           ###   ########.fr       */
+/*   Updated: 2023/11/25 11:18:50 by mstrba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ void	fdf_movement_keys(int keycode, t_additional *dataset)
 	t_point	*data;
 
 	data = dataset->data;
+	//printf("%d\n", keycode);
 	if (keycode == KEY_LEFT)
 		dataset->shift_x -= 10;
 	else if (keycode == KEY_UP)
@@ -94,6 +95,8 @@ int	fdf_controls_key_press(int keycode, t_additional *dataset)
 	}
 	else if (keycode == KEY_F)
 		fdf_full_screen(dataset);
+	else if (keycode == YES || keycode == NO)
+		fdf_do_isometric(keycode, dataset);
 	else
 		fdf_movement_keys(keycode, dataset);
 	return (0);

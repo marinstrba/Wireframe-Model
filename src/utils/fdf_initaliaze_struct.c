@@ -1,19 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   isometric.c                                        :+:      :+:    :+:   */
+/*   fdf_initaliaze_struct.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mstrba <mstrba@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/23 10:55:27 by mstrba            #+#    #+#             */
-/*   Updated: 2023/11/24 15:03:05 by mstrba           ###   ########.fr       */
+/*   Created: 2023/11/24 15:00:33 by mstrba            #+#    #+#             */
+/*   Updated: 2023/11/25 11:16:59 by mstrba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../lib/fdf.h"
 
-void	isometric(int	*x, int	*y, int z)
+void	fdf_initialize_struct(t_additional	**data)
 {
-	*x = (*x - *y) * cos(0.8);
-	*y = (*x + *y) * cos(0.8) - z;
+	(*data)->zoom = 2;
+	(*data)->screen_height = 600;
+	(*data)->screen_width = 800;
+	(*data)->full_screen = 0;
+	(*data)->shift_x = 370;
+	(*data)->shift_y = 150;
+	(*data)->color = 0xffffff;
+	(*data)->do_isometric = 1;
 }

@@ -6,7 +6,7 @@
 /*   By: mstrba <mstrba@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 17:39:15 by mstrba            #+#    #+#             */
-/*   Updated: 2023/11/25 10:58:13 by mstrba           ###   ########.fr       */
+/*   Updated: 2023/11/25 11:19:13 by mstrba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@
 # define KEY_DOWN 65364
 # define KEY_LEFT 65361
 # define KEY_RIGHT 65363
+# define YES 121
+# define NO 110
 # define MOUSE_SCROLL_UP 4
 # define MOUSE_SCROLL_DOWN 5
 
@@ -74,6 +76,7 @@ typedef struct s_additional
 	int				screen_height;
 	int				screen_width;
 	int				full_screen;
+	int				do_isometric;
 	void			*mlx_ptr;
 	void			*win_ptr;
 	t_line			*line;
@@ -111,6 +114,7 @@ void	fdf_print_menu(t_additional	*dataset);
 
 /*-----------------------Rotation-----------------------*/
 void	isometric(int	*x, int	*y, int z);
+void	fdf_do_isometric(int keycode, t_additional *dataset);
 
 /*-----------------------Colors-----------------------*/
 

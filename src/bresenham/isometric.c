@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf_initaliaze_struct.c                            :+:      :+:    :+:   */
+/*   isometric.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mstrba <mstrba@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/24 15:00:33 by mstrba            #+#    #+#             */
-/*   Updated: 2023/11/24 15:27:38 by mstrba           ###   ########.fr       */
+/*   Created: 2023/11/23 10:55:27 by mstrba            #+#    #+#             */
+/*   Updated: 2023/11/25 11:19:55 by mstrba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../lib/fdf.h"
 
-void	fdf_initialize_struct(t_additional	**data)
+void	isometric(int	*x, int	*y, int z)
 {
-	(*data)->zoom = 2;
-	(*data)->screen_height = 600;
-	(*data)->screen_width = 800;
-	(*data)->full_screen = 0;
-	(*data)->shift_x = 370;
-	(*data)->shift_y = 150;
-	(*data)->color = 0xffffff;
+	*x = (*x - *y) * cos(0.8);
+	*y = (*x + *y) * cos(0.8) - z;
+}
+
+void	fdf_do_isometric(int keycode, t_additional *dataset)
+{
+	if (keycode == YES)
+		dataset->do_isometric = 1;
+	else if (keycode == NO)
+		dataset->do_isometric = 0;
 }

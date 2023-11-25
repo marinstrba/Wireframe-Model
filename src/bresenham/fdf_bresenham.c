@@ -6,7 +6,7 @@
 /*   By: mstrba <mstrba@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 10:57:34 by mstrba            #+#    #+#             */
-/*   Updated: 2023/11/25 10:57:59 by mstrba           ###   ########.fr       */
+/*   Updated: 2023/11/25 11:20:59 by mstrba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,11 @@ void	calc_param(t_line *line, t_point *data, t_point *ptr2, t_additional *ds)
 	line->y0 = data->y_map * ds->zoom;
 	line->x1 = ptr2->x_map * ds->zoom;
 	line->y1 = ptr2->y_map * ds->zoom;
-	isometric(&(line->x0), &(line->y0), line->z0);
-	isometric(&(line->x1), &(line->y1), line->z1);
+	if (ds->do_isometric)
+	{
+		isometric(&(line->x0), &(line->y0), line->z0);
+		isometric(&(line->x1), &(line->y1), line->z1);
+	}
 	line->x0 += 450;
 	line->y0 += 450;
 	line->x1 += 450;
