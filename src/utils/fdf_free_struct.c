@@ -6,7 +6,7 @@
 /*   By: mstrba <mstrba@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 14:37:48 by mstrba            #+#    #+#             */
-/*   Updated: 2023/11/25 16:01:21 by mstrba           ###   ########.fr       */
+/*   Updated: 2023/11/25 17:12:32 by mstrba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,6 @@ void	fdf_free_dataset(t_additional **dataset)
 			(*dataset)->line = NULL;
 		}
 		free_data(&((*dataset)->data));
-		free((*dataset)->mlx_ptr);
-		free((*dataset)->win_ptr);
 		free(*dataset);
 		*dataset = NULL;
 	}

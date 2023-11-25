@@ -6,7 +6,7 @@
 /*   By: mstrba <mstrba@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 17:39:15 by mstrba            #+#    #+#             */
-/*   Updated: 2023/11/25 15:07:03 by mstrba           ###   ########.fr       */
+/*   Updated: 2023/11/25 17:05:37 by mstrba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,12 +96,12 @@ void	convert_cordinates(char	*line, t_point	**head, int y);
 /*///////////////////DRAWING FUNCTIONS//////////////////*/
 
 /*------------------------Draw--------------------------*/
-void	init_line_vars(t_line *line);
-void	draw_line(t_line *line, t_additional *dt);
+void	init_line_vars(t_line ***line);
+void	draw_line(t_line **line, t_additional *dt);
 void	fdf_draw(t_point	*data, t_additional	*dataset);
 void	fdf_draw_down(t_point	*ptr1, t_point	*ptr2, t_additional	*data);
 void	fdf_bresenham(t_point *data, t_point	*ptr2, t_additional *dataset);
-void	calc_param(t_line *line, t_point *data, t_point *ptr, t_additional *ds);
+void	calc_param(t_line **line, t_point *data, t_point *ptr, t_additional *ds);
 
 /*------------------------Menu---------------------------*/
 void	fdf_print_menu(t_additional	*dataset);

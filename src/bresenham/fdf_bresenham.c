@@ -6,7 +6,7 @@
 /*   By: mstrba <mstrba@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 10:57:34 by mstrba            #+#    #+#             */
-/*   Updated: 2023/11/25 15:09:34 by mstrba           ###   ########.fr       */
+/*   Updated: 2023/11/25 17:01:28 by mstrba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 
 void	fdf_bresenham(t_point *data, t_point	*ptr2, t_additional *dataset)
 {
-	t_line	line;
+	t_line	*line;
 
+	line = malloc(sizeof(t_line));
 	calc_param(&line, data, ptr2, dataset);
 	draw_line(&line, dataset);
 }
