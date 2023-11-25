@@ -6,7 +6,7 @@
 /*   By: mstrba <mstrba@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 17:39:15 by mstrba            #+#    #+#             */
-/*   Updated: 2023/11/24 16:21:39 by mstrba           ###   ########.fr       */
+/*   Updated: 2023/11/25 10:58:13 by mstrba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,23 @@ typedef struct s_point
 	struct s_point	*next;
 }		t_point;
 
+typedef struct s_line
+{
+	int	x0;
+	int	x1;
+	int	y0;
+	int	y1;
+	int	z0;
+	int	z1;
+	int	err;
+	int	max_z;
+	int	min_z;
+	int	dx;
+	int	dy;
+	int	sx;
+	int	sy;
+}		t_line;
+
 typedef struct s_additional
 {
 	int				height;
@@ -59,18 +76,9 @@ typedef struct s_additional
 	int				full_screen;
 	void			*mlx_ptr;
 	void			*win_ptr;
+	t_line			*line;
 	t_point			*data;
 }		t_additional;
-
-typedef struct s_line
-{
-	int	x0;
-	int	x1;
-	int	y0;
-	int	y1;
-	int	z0;
-	int	z1;
-}		t_line;
 
 /*----------------------Open files----------------------*/
 
@@ -96,6 +104,7 @@ void	fdf_init_screen(t_point	**cordinates, t_additional	*data);
 
 /*------------------------Draw--------------------------*/
 void	fdf_draw(t_point	*data, t_additional	*dataset);
+void	fdf_bresenham(t_point *data, t_point	*ptr2, t_additional *dataset);
 
 /*------------------------Menu---------------------------*/
 void	fdf_print_menu(t_additional	*dataset);
