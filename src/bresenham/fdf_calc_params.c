@@ -6,7 +6,7 @@
 /*   By: mstrba <mstrba@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 12:22:43 by mstrba            #+#    #+#             */
-/*   Updated: 2023/11/25 12:23:37 by mstrba           ###   ########.fr       */
+/*   Updated: 2023/11/25 12:52:20 by mstrba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,5 @@ void	calc_param(t_line *line, t_point *data, t_point *ptr, t_additional *ds)
 	line->x1 += 450;
 	line->y1 += 450;
 	find_min_max_z(data, &(line->min_z), &(line->max_z));
-	ds->color = get_elevation_color(line->z0, line->min_z, line->max_z);
+	ds->color = get_elevation_color(ds, line->z0, line->min_z, line->max_z);
 }

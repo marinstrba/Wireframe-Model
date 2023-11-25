@@ -6,7 +6,7 @@
 /*   By: mstrba <mstrba@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 15:00:33 by mstrba            #+#    #+#             */
-/*   Updated: 2023/11/25 11:16:59 by mstrba           ###   ########.fr       */
+/*   Updated: 2023/11/25 12:59:35 by mstrba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,4 +22,6 @@ void	fdf_initialize_struct(t_additional	**data)
 	(*data)->shift_y = 150;
 	(*data)->color = 0xffffff;
 	(*data)->do_isometric = 1;
+	(*data)->color_low = 0xffffff;
+	(*data)->color_high = 0xffffff;
 }

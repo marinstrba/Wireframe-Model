@@ -6,7 +6,7 @@
 /*   By: mstrba <mstrba@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 11:31:00 by mstrba            #+#    #+#             */
-/*   Updated: 2023/11/25 12:19:17 by mstrba           ###   ########.fr       */
+/*   Updated: 2023/11/25 12:55:07 by mstrba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,10 @@ int	fdf_controls_key_press(int keycode, t_additional *dataset)
 		fdf_full_screen(dataset);
 	else if (keycode == YES || keycode == NO)
 		fdf_do_isometric(keycode, dataset);
+	else if (keycode == ONE || keycode == TWO)
+		fdf_color_mode_control(keycode, dataset);
+	else if (keycode == THREE || keycode == FOUR)
+		fdf_color_mode_control(keycode, dataset);
 	else
 		fdf_movement_keys(keycode, dataset);
 	return (0);

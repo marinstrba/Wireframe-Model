@@ -6,7 +6,7 @@
 /*   By: mstrba <mstrba@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 17:39:15 by mstrba            #+#    #+#             */
-/*   Updated: 2023/11/25 12:23:30 by mstrba           ###   ########.fr       */
+/*   Updated: 2023/11/25 12:52:51 by mstrba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,10 @@
 # define NO 110
 # define MOUSE_SCROLL_UP 4
 # define MOUSE_SCROLL_DOWN 5
-
+# define ONE 65436
+# define TWO 65433
+# define THREE 65435
+# define FOUR 65430
 
 /*---------------------Standart libs---------------------*/
 
@@ -77,6 +80,8 @@ typedef struct s_additional
 	int				screen_width;
 	int				full_screen;
 	int				do_isometric;
+	int				color_low;
+	int				color_high;
 	void			*mlx_ptr;
 	void			*win_ptr;
 	t_line			*line;
@@ -143,7 +148,7 @@ int		get_red_component(int color);
 int		get_green_component(int color);
 int		get_blue_component(int color);
 int		combine_colors(int r, int g, int b);
-int		get_elevation_color(int z, int minZ, int maxZ);
+int		get_elevation_color(t_additional	*ds, int z, int minZ, int maxZ);
 void	find_min_max_z(t_point *head, int *minZ, int *maxZ);
 
 /*/////////////////////CONTROLS//////////////////////////*/
@@ -160,5 +165,6 @@ int		close_window(t_additional *data);
 int		fdf_controls_mouse(int mousecode, int x, int y, t_additional *dataset);
 int		fdf_controls_key_press(int keycode, t_additional *data);
 void	fdf_movement_keys(int keycode, t_additional *dataset);
+void	fdf_color_mode_control(int keycode, t_additional *dataset);
 
 #endif
