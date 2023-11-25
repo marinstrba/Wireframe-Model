@@ -6,11 +6,11 @@
 /*   By: mstrba <mstrba@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 10:59:11 by mstrba            #+#    #+#             */
-/*   Updated: 2023/11/25 12:11:08 by mstrba           ###   ########.fr       */
+/*   Updated: 2023/11/25 15:07:49 by mstrba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../lib/fdf.h"
+#include "../../lib/fdf.h"
 
 void	fdf_print_menu(t_additional	*dataset)
 {

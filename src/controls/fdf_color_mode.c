@@ -6,11 +6,11 @@
 /*   By: mstrba <mstrba@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 12:33:11 by mstrba            #+#    #+#             */
-/*   Updated: 2023/11/25 12:57:52 by mstrba           ###   ########.fr       */
+/*   Updated: 2023/11/25 15:08:50 by mstrba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../lib/fdf.h"
+#include "../../lib/fdf.h"
 
 void	fdf_color_mode_control(int keycode, t_additional *dataset)
 {
@@ -33,7 +33,6 @@ void	fdf_color_mode_control(int keycode, t_additional *dataset)
 	{
 		dataset->color_low = 0x994D1C;
 		dataset->color_high = 0x7B66FF;
-		printf("AHOJ");
 	}
 	mlx_clear_window(dataset->mlx_ptr, dataset->win_ptr);
 	fdf_draw(dataset->data, dataset);

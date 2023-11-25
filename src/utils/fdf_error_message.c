@@ -6,11 +6,11 @@
 /*   By: mstrba <mstrba@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 18:09:02 by mstrba            #+#    #+#             */
-/*   Updated: 2023/11/24 15:27:41 by mstrba           ###   ########.fr       */
+/*   Updated: 2023/11/25 15:07:44 by mstrba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../lib/fdf.h"
+#include "../../lib/fdf.h"
 
 void	fdf_diff_num_of_args(void)
 {

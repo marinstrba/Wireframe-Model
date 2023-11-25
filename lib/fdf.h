@@ -6,7 +6,7 @@
 /*   By: mstrba <mstrba@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 17:39:15 by mstrba            #+#    #+#             */
-/*   Updated: 2023/11/25 12:52:51 by mstrba           ###   ########.fr       */
+/*   Updated: 2023/11/25 15:07:03 by mstrba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,7 +119,9 @@ void	fdf_add_node_last(t_point	*head, t_point	*node);
 
 /*-----------------------Memory-------------------------*/
 
+void	free_2d_array(char **array);
 void	free_data(t_point **map_coordinates);
+void	fdf_free_dataset(t_additional	**dataset);
 
 /*-----------------------Rotation-----------------------*/
 void	isometric(int	*x, int	*y, int z);

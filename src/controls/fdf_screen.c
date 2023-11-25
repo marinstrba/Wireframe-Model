@@ -6,11 +6,11 @@
 /*   By: mstrba <mstrba@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 09:29:05 by mstrba            #+#    #+#             */
-/*   Updated: 2023/11/25 12:19:46 by mstrba           ###   ########.fr       */
+/*   Updated: 2023/11/25 15:08:22 by mstrba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../lib/fdf.h"
+#include "../../lib/fdf.h"
 
 void	fdf_init_screen(t_point **cordinates, t_additional *data)
 {

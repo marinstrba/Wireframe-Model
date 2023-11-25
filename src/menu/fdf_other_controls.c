@@ -6,11 +6,11 @@
 /*   By: mstrba <mstrba@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 12:11:20 by mstrba            #+#    #+#             */
-/*   Updated: 2023/11/25 12:29:11 by mstrba           ###   ########.fr       */
+/*   Updated: 2023/11/25 15:13:55 by mstrba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../lib/fdf.h"
+#include "../../lib/fdf.h"
 
 void	fdf_other_controls(t_additional	*data)
 {

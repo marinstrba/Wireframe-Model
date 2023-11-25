@@ -6,11 +6,11 @@
 /*   By: mstrba <mstrba@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 12:40:11 by mstrba            #+#    #+#             */
-/*   Updated: 2023/11/25 12:23:49 by mstrba           ###   ########.fr       */
+/*   Updated: 2023/11/25 15:09:27 by mstrba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../lib/fdf.h"
+#include "../../lib/fdf.h"
 
 void	fdf_draw_down(t_point	*ptr1, t_point	*ptr2, t_additional	*data)
 {

@@ -6,17 +6,17 @@
 /*   By: mstrba <mstrba@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 11:31:00 by mstrba            #+#    #+#             */
-/*   Updated: 2023/11/25 12:55:07 by mstrba           ###   ########.fr       */
+/*   Updated: 2023/11/25 15:23:39 by mstrba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../lib/fdf.h"
+#include "../../lib/fdf.h"
 
 int	fdf_controls_key_press(int keycode, t_additional *dataset)
 {
 	if (keycode == KEY_ESC)
 	{
-		mlx_destroy_window(dataset->mlx_ptr, dataset->win_ptr);
+		close_window(dataset);
 		exit(EXIT_SUCCESS);
 	}
 	else if (keycode == KEY_F)
@@ -27,7 +27,9 @@ int	fdf_controls_key_press(int keycode, t_additional *dataset)
 		fdf_color_mode_control(keycode, dataset);
 	else if (keycode == THREE || keycode == FOUR)
 		fdf_color_mode_control(keycode, dataset);
-	else
+	else if (keycode == KEY_UP || keycode == KEY_DOWN)
+		fdf_movement_keys(keycode, dataset);
+	else if (keycode == KEY_LEFT || keycode == KEY_RIGHT)
 		fdf_movement_keys(keycode, dataset);
 	return (0);
 }

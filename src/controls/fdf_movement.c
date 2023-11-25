@@ -6,11 +6,11 @@
 /*   By: mstrba <mstrba@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 12:18:17 by mstrba            #+#    #+#             */
-/*   Updated: 2023/11/25 12:19:39 by mstrba           ###   ########.fr       */
+/*   Updated: 2023/11/25 15:08:31 by mstrba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../lib/fdf.h"
+#include "../../lib/fdf.h"
 
 void	fdf_movement_keys(int keycode, t_additional *dataset)
 {

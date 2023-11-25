@@ -6,7 +6,7 @@
 /*   By: mstrba <mstrba@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 17:22:58 by mstrba            #+#    #+#             */
-/*   Updated: 2023/11/24 15:02:59 by mstrba           ###   ########.fr       */
+/*   Updated: 2023/11/25 15:10:05 by mstrba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,8 @@ int	main(int argc, char **argv)
 	dataset->data = cordinates;
 	fdf_init_screen(&cordinates, dataset);
 	free_data(&cordinates);
+	fdf_free_dataset(&dataset);
+	free(dataset);
+	free(cordinates);
 	return (EXIT_SUCCESS);
 }

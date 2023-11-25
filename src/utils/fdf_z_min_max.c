@@ -6,11 +6,11 @@
 /*   By: mstrba <mstrba@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 18:23:55 by mstrba            #+#    #+#             */
-/*   Updated: 2023/11/24 15:03:07 by mstrba           ###   ########.fr       */
+/*   Updated: 2023/11/25 15:07:26 by mstrba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../lib/fdf.h"
+#include "../../lib/fdf.h"
 
 void	find_min_max_z(t_point *head, int *minZ, int *maxZ)
 {

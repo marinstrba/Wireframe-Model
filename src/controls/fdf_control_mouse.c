@@ -6,11 +6,11 @@
 /*   By: mstrba <mstrba@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 12:18:51 by mstrba            #+#    #+#             */
-/*   Updated: 2023/11/25 12:19:10 by mstrba           ###   ########.fr       */
+/*   Updated: 2023/11/25 15:08:45 by mstrba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../lib/fdf.h"
+#include "../../lib/fdf.h"
 
 int	fdf_controls_mouse(int mousecode, int x, int y, t_additional *dataset)
 {

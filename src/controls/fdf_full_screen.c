@@ -6,11 +6,11 @@
 /*   By: mstrba <mstrba@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 12:17:14 by mstrba            #+#    #+#             */
-/*   Updated: 2023/11/25 13:54:24 by mstrba           ###   ########.fr       */
+/*   Updated: 2023/11/25 15:15:49 by mstrba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../lib/fdf.h"
+#include "../../lib/fdf.h"
 
 void	fdf_fs_help(t_additional **dataset)
 {
@@ -21,7 +21,7 @@ void	fdf_fs_help(t_additional **dataset)
 
 	width_prev = 800;
 	height_prev = 600;
-	close_window((*dataset));
+	mlx_destroy_window((*dataset)->mlx_ptr, (*dataset)->win_ptr);
 	mlx_get_screen_size((*dataset)->mlx_ptr, &width, &height);
 	if ((*dataset)->full_screen == 0)
 	{
@@ -44,18 +44,8 @@ void	fdf_fs_help(t_additional **dataset)
 void	fdf_full_screen(t_additional *dataset)
 {
 	t_point		*data;
-	int			center_x;
-	int			center_y;
-	int			object_width;
-	int			object_height;
 
 	data = dataset->data;
-	object_width = dataset->width;
-	object_height = dataset->height;
 	fdf_fs_help(&dataset);
-	center_x = object_width / 2;
-	center_y = object_height / 2;
-	dataset->shift_x = (dataset->screen_width / 2) - center_x;
-	dataset->shift_y = (dataset->screen_height / 2) - center_y;
 	fdf_init_screen(&data, dataset);
 }

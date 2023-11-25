@@ -6,11 +6,11 @@
 /*   By: mstrba <mstrba@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 12:21:19 by mstrba            #+#    #+#             */
-/*   Updated: 2023/11/25 12:21:56 by mstrba           ###   ########.fr       */
+/*   Updated: 2023/11/25 15:09:23 by mstrba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../lib/fdf.h"
+#include "../../lib/fdf.h"
 
 void	draw_line(t_line *line, t_additional *dt)
 {

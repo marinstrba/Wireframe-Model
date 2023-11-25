@@ -1,31 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf_initaliaze_struct.c                            :+:      :+:    :+:   */
+/*   fdf_free_2d_array.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mstrba <mstrba@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/24 15:00:33 by mstrba            #+#    #+#             */
-/*   Updated: 2023/11/25 15:20:51 by mstrba           ###   ########.fr       */
+/*   Created: 2023/11/25 15:05:05 by mstrba            #+#    #+#             */
+/*   Updated: 2023/11/25 15:06:45 by mstrba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../lib/fdf.h"
 
-void	fdf_initialize_struct(t_additional	**data)
+void	free_2d_array(char **array)
 {
-	(*data)->zoom = 2;
-	(*data)->screen_height = 600;
-	(*data)->screen_width = 800;
-	(*data)->full_screen = 0;
-	(*data)->shift_x = 370;
-	(*data)->shift_y = 150;
-	(*data)->color = 0xffffff;
-	(*data)->do_isometric = 1;
-	(*data)->color_low = 0xffffff;
-	(*data)->color_high = 0xffffff;
-	//(*data)->height = 0;
-	//(*data)->width = 0;
-	//(*data)->line = NULL;
-	//(*data)->data = NULL;
+	int	i;
+
+	i = 0;
+	if (array == NULL)
+		return ;
+	while (array[i] != NULL)
+	{
+		free(array[i]);
+		i++;
+	}
+	free(array);
 }

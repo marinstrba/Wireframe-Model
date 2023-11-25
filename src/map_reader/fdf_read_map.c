@@ -6,11 +6,11 @@
 /*   By: mstrba <mstrba@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 17:50:23 by mstrba            #+#    #+#             */
-/*   Updated: 2023/11/24 15:06:51 by mstrba           ###   ########.fr       */
+/*   Updated: 2023/11/25 15:10:57 by mstrba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../lib/fdf.h"
+#include "../../lib/fdf.h"
 
 void	fdf_add_node(t_point	**new_node)
 {
@@ -53,6 +53,7 @@ void	convert_cordinates(char	*line, t_point	**head, int y)
 			fdf_add_node_last(*head, new_node);
 		index++;
 	}
+	free_2d_array(seperated_characters);
 }
 
 void	count_chars(t_additional	***dataset, char	*line)
@@ -65,6 +66,7 @@ void	count_chars(t_additional	***dataset, char	*line)
 	while (chars[num_chars])
 		num_chars++;
 	(**dataset)->width = num_chars;
+	free_2d_array(chars);
 }
 
 t_point	*fdf_read_map(int fd, t_additional	**dataset)

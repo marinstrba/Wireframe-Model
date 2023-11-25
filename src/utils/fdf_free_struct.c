@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fdf_initaliaze_struct.c                            :+:      :+:    :+:   */
+/*   fdf_free_struct.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mstrba <mstrba@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/24 15:00:33 by mstrba            #+#    #+#             */
-/*   Updated: 2023/11/25 15:20:51 by mstrba           ###   ########.fr       */
+/*   Created: 2023/11/25 14:37:48 by mstrba            #+#    #+#             */
+/*   Updated: 2023/11/25 16:01:21 by mstrba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../lib/fdf.h"
 
-void	fdf_initialize_struct(t_additional	**data)
+void	fdf_free_dataset(t_additional **dataset)
 {
-	(*data)->zoom = 2;
-	(*data)->screen_height = 600;
-	(*data)->screen_width = 800;
-	(*data)->full_screen = 0;
-	(*data)->shift_x = 370;
-	(*data)->shift_y = 150;
-	(*data)->color = 0xffffff;
-	(*data)->do_isometric = 1;
-	(*data)->color_low = 0xffffff;
-	(*data)->color_high = 0xffffff;
-	//(*data)->height = 0;
-	//(*data)->width = 0;
-	//(*data)->line = NULL;
-	//(*data)->data = NULL;
+	if (dataset && *dataset)
+	{
+		if ((*dataset)->line)
+		{
+			free((*dataset)->line);
+			(*dataset)->line = NULL;
+		}
+		free_data(&((*dataset)->data));
+		free((*dataset)->mlx_ptr);
+		free((*dataset)->win_ptr);
+		free(*dataset);
+		*dataset = NULL;
+	}
 }

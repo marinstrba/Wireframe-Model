@@ -6,11 +6,11 @@
 /*   By: mstrba <mstrba@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 16:15:41 by mstrba            #+#    #+#             */
-/*   Updated: 2023/11/24 16:22:12 by mstrba           ###   ########.fr       */
+/*   Updated: 2023/11/25 15:09:07 by mstrba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../lib/fdf.h"
+#include "../../lib/fdf.h"
 
 int	lerp(int start, int end, float t)
 {

@@ -6,11 +6,11 @@
 /*   By: mstrba <mstrba@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 18:28:14 by mstrba            #+#    #+#             */
-/*   Updated: 2023/11/25 12:53:26 by mstrba           ###   ########.fr       */
+/*   Updated: 2023/11/25 15:09:12 by mstrba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../lib/fdf.h"
+#include "../../lib/fdf.h"
 
 float	normalize(int z, int min_z, int max_z)
 {

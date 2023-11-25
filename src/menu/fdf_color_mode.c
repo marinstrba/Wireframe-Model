@@ -6,11 +6,11 @@
 /*   By: mstrba <mstrba@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 12:10:27 by mstrba            #+#    #+#             */
-/*   Updated: 2023/11/25 12:29:51 by mstrba           ###   ########.fr       */
+/*   Updated: 2023/11/25 15:08:09 by mstrba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../lib/fdf.h"
+#include "../../lib/fdf.h"
 
 void	fdf_color_mode(t_additional	*data)
 {

@@ -6,11 +6,11 @@
 /*   By: mstrba <mstrba@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 12:22:11 by mstrba            #+#    #+#             */
-/*   Updated: 2023/11/25 12:22:22 by mstrba           ###   ########.fr       */
+/*   Updated: 2023/11/25 15:09:20 by mstrba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../lib/fdf.h"
+#include "../../lib/fdf.h"
 
 void	init_line_vars(t_line *line)
 {
