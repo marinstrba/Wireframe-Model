@@ -6,7 +6,7 @@
 /*   By: mstrba <mstrba@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/23 18:28:14 by mstrba            #+#    #+#             */
-/*   Updated: 2023/11/25 15:09:12 by mstrba           ###   ########.fr       */
+/*   Updated: 2023/11/27 16:41:52 by mstrba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	ic(int c1, int c2, float t)
 	return (lerp(c1, c2, t));
 }
 
-int	get_elevation_color(t_additional	*ds, int z, int min_z, int max_z)
+int	get_el_col(t_additional	*ds, int z, int min_z, int max_z)
 {
 	int		low;
 	int		high;

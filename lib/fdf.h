@@ -6,7 +6,7 @@
 /*   By: mstrba <mstrba@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 17:39:15 by mstrba            #+#    #+#             */
-/*   Updated: 2023/11/25 17:05:37 by mstrba           ###   ########.fr       */
+/*   Updated: 2023/11/27 16:49:43 by mstrba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,7 +101,7 @@ void	draw_line(t_line **line, t_additional *dt);
 void	fdf_draw(t_point	*data, t_additional	*dataset);
 void	fdf_draw_down(t_point	*ptr1, t_point	*ptr2, t_additional	*data);
 void	fdf_bresenham(t_point *data, t_point	*ptr2, t_additional *dataset);
-void	calc_param(t_line **line, t_point *data, t_point *ptr, t_additional *ds);
+void	calc_par(t_line **line, t_point *data, t_point *ptr, t_additional *ds);
 
 /*------------------------Menu---------------------------*/
 void	fdf_print_menu(t_additional	*dataset);
@@ -150,7 +150,7 @@ int		get_red_component(int color);
 int		get_green_component(int color);
 int		get_blue_component(int color);
 int		combine_colors(int r, int g, int b);
-int		get_elevation_color(t_additional	*ds, int z, int minZ, int maxZ);
+int		get_el_col(t_additional	*ds, int z, int minZ, int maxZ);
 void	find_min_max_z(t_point *head, int *minZ, int *maxZ);
 
 /*/////////////////////CONTROLS//////////////////////////*/

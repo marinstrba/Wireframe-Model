@@ -6,13 +6,13 @@
 /*   By: mstrba <mstrba@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 12:22:43 by mstrba            #+#    #+#             */
-/*   Updated: 2023/11/25 17:02:46 by mstrba           ###   ########.fr       */
+/*   Updated: 2023/11/27 16:45:08 by mstrba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../lib/fdf.h"
 
-void	calc_param(t_line **line, t_point *data, t_point *ptr, t_additional *ds)
+void	calc_par(t_line **line, t_point *data, t_point *ptr, t_additional *ds)
 {
 	(*line)->z0 = data->z_map;
 	(*line)->z1 = ptr->z_map;
@@ -30,5 +30,5 @@ void	calc_param(t_line **line, t_point *data, t_point *ptr, t_additional *ds)
 	(*line)->x1 += ds->shift_x;
 	(*line)->y1 += ds->shift_y;
 	find_min_max_z(data, &((*line)->min_z), &((*line)->max_z));
-	ds->color = get_elevation_color(ds, (*line)->z0, (*line)->min_z, (*line)->max_z);
+	ds->color = get_el_col(ds, (*line)->z0, (*line)->min_z, (*line)->max_z);
 }
