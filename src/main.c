@@ -6,7 +6,7 @@
 /*   By: mstrba <mstrba@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 17:22:58 by mstrba            #+#    #+#             */
-/*   Updated: 2023/11/25 17:09:03 by mstrba           ###   ########.fr       */
+/*   Updated: 2023/11/27 11:32:57 by mstrba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,13 @@ int	main(int argc, char **argv)
 	if (fd != -1)
 		cordinates = fdf_read_map(fd, &dataset);
 	else
+	{
+		free_data(&cordinates);
+		free(dataset);
 		fdf_corrupted_file();
+	}
 	fdf_initialize_struct(&dataset);
 	dataset->data = cordinates;
 	fdf_init_screen(&cordinates, dataset);
-	free_data(&cordinates);
-	fdf_free_dataset(&dataset);
-	free(dataset);
-	free(cordinates);
 	return (EXIT_SUCCESS);
 }
