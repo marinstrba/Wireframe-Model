@@ -6,7 +6,7 @@
 /*   By: mstrba <mstrba@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 17:39:15 by mstrba            #+#    #+#             */
-/*   Updated: 2023/11/27 16:49:43 by mstrba           ###   ########.fr       */
+/*   Updated: 2023/11/28 09:11:54 by mstrba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,12 @@ typedef struct s_additional
 	void			*win_ptr;
 	t_line			*line;
 	t_point			*data;
+	/*IMG*/
+	void			*img_pointer;
+	int				bits;
+	int				lsize;
+	int				endian;
+	char			*img_string;
 }		t_additional;
 
 /*//////////////////////MAP-READER//////////////////////*/
@@ -96,6 +102,8 @@ void	convert_cordinates(char	*line, t_point	**head, int y);
 /*///////////////////DRAWING FUNCTIONS//////////////////*/
 
 /*------------------------Draw--------------------------*/
+void	fdf_new_image(t_additional	*data);
+void	my_pixel_put(t_additional	*data, int x, int y, int color);
 void	init_line_vars(t_line ***line);
 void	draw_line(t_line **line, t_additional *dt);
 void	fdf_draw(t_point	*data, t_additional	*dataset);

@@ -6,7 +6,7 @@
 /*   By: mstrba <mstrba@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 12:18:17 by mstrba            #+#    #+#             */
-/*   Updated: 2023/11/25 15:08:31 by mstrba           ###   ########.fr       */
+/*   Updated: 2023/11/28 11:23:42 by mstrba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,5 @@ void	fdf_movement_keys(int keycode, t_additional *dataset)
 		dataset->shift_x += 10;
 	else if (keycode == KEY_DOWN)
 		dataset->shift_y += 10;
-	mlx_clear_window(dataset->mlx_ptr, dataset->win_ptr);
-	fdf_draw(data, dataset);
+	fdf_init_screen(&(data), dataset);
 }

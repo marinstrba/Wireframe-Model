@@ -6,7 +6,7 @@
 /*   By: mstrba <mstrba@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 17:22:58 by mstrba            #+#    #+#             */
-/*   Updated: 2023/11/27 11:32:57 by mstrba           ###   ########.fr       */
+/*   Updated: 2023/11/28 11:27:26 by mstrba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 int	main(int argc, char **argv)
 {
 	int				fd;
+	int				scw;
+	int				sch;
 	t_point			*cordinates;
 	t_additional	*dataset;
 
@@ -32,6 +34,11 @@ int	main(int argc, char **argv)
 	}
 	fdf_initialize_struct(&dataset);
 	dataset->data = cordinates;
+	scw = dataset->screen_width;
+	sch = dataset->screen_height;
+	dataset->mlx_ptr = mlx_init();
+	dataset->win_ptr = mlx_new_window(dataset->mlx_ptr, scw, sch, "Wireframe");
+	fdf_new_image(dataset);
 	fdf_init_screen(&cordinates, dataset);
 	return (EXIT_SUCCESS);
 }

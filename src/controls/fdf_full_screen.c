@@ -6,7 +6,7 @@
 /*   By: mstrba <mstrba@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 12:17:14 by mstrba            #+#    #+#             */
-/*   Updated: 2023/11/25 15:15:49 by mstrba           ###   ########.fr       */
+/*   Updated: 2023/11/28 11:21:57 by mstrba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,16 @@ void	fdf_fs_help(t_additional **dataset)
 void	fdf_full_screen(t_additional *dataset)
 {
 	t_point		*data;
+	int			sch;
+	int			scw;
 
 	data = dataset->data;
 	fdf_fs_help(&dataset);
+	scw = dataset->screen_width;
+	sch = dataset->screen_height;
+	free(dataset->mlx_ptr);
+	free(dataset->win_ptr);
+	dataset->mlx_ptr = mlx_init();
+	dataset->win_ptr = mlx_new_window(dataset->mlx_ptr, scw, sch, "Wireframe");
 	fdf_init_screen(&data, dataset);
 }

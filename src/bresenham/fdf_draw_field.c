@@ -6,7 +6,7 @@
 /*   By: mstrba <mstrba@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 12:40:11 by mstrba            #+#    #+#             */
-/*   Updated: 2023/11/25 15:09:27 by mstrba           ###   ########.fr       */
+/*   Updated: 2023/11/28 11:24:18 by mstrba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ void	fdf_draw(t_point	*data, t_additional	*dataset)
 	ptr1 = data;
 	ptr2 = data;
 	index = 0;
-	fdf_print_menu(dataset);
 	while (ptr1->next != NULL)
 	{
 		ptr3 = ptr1;

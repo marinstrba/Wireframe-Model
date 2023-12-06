@@ -1,28 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   isometric.c                                        :+:      :+:    :+:   */
+/*   fdf_new_image.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mstrba <mstrba@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/23 10:55:27 by mstrba            #+#    #+#             */
-/*   Updated: 2023/11/28 11:24:10 by mstrba           ###   ########.fr       */
+/*   Created: 2023/11/28 09:09:15 by mstrba            #+#    #+#             */
+/*   Updated: 2023/11/28 09:16:03 by mstrba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../lib/fdf.h"
 
-void	isometric(int	*x, int	*y, int z)
+void	fdf_new_image(t_additional	*data)
 {
-	*x = (*x - *y) * cos(0.8);
-	*y = (*x + *y) * cos(0.8) - z;
-}
-
-void	fdf_do_isometric(int keycode, t_additional *dataset)
-{
-	if (keycode == YES)
-		dataset->do_isometric = 1;
-	else if (keycode == NO)
-		dataset->do_isometric = 0;
-	fdf_init_screen(&(dataset->data), dataset);
+	data->img_pointer = mlx_new_image(data->mlx_ptr, data->screen_width,
+			data->screen_height);
+	data->img_string = mlx_get_data_addr(data->img_pointer, &(data->bits),
+			&(data->lsize), &(data->endian));
 }

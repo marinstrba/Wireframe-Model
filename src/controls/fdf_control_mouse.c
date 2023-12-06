@@ -6,7 +6,7 @@
 /*   By: mstrba <mstrba@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 12:18:51 by mstrba            #+#    #+#             */
-/*   Updated: 2023/11/25 15:08:45 by mstrba           ###   ########.fr       */
+/*   Updated: 2023/11/28 11:23:55 by mstrba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ int	fdf_controls_mouse(int mousecode, int x, int y, t_additional *dataset)
 		dataset->zoom -= 1;
 	if (dataset->zoom < 1)
 		dataset->zoom = 1;
-	mlx_clear_window(dataset->mlx_ptr, dataset->win_ptr);
-	fdf_draw(data, dataset);
+	fdf_init_screen(&(data), dataset);
 	return (0);
 }

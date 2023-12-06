@@ -6,7 +6,7 @@
 /*   By: mstrba <mstrba@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 12:33:11 by mstrba            #+#    #+#             */
-/*   Updated: 2023/11/25 15:08:50 by mstrba           ###   ########.fr       */
+/*   Updated: 2023/11/28 11:23:59 by mstrba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,5 @@ void	fdf_color_mode_control(int keycode, t_additional *dataset)
 		dataset->color_low = 0x994D1C;
 		dataset->color_high = 0x7B66FF;
 	}
-	mlx_clear_window(dataset->mlx_ptr, dataset->win_ptr);
-	fdf_draw(dataset->data, dataset);
+	fdf_init_screen(&(dataset->data), dataset);
 }

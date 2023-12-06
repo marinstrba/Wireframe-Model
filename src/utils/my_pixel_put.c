@@ -1,28 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   isometric.c                                        :+:      :+:    :+:   */
+/*   my_pixel_put.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mstrba <mstrba@student.42prague.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/23 10:55:27 by mstrba            #+#    #+#             */
-/*   Updated: 2023/11/28 11:24:10 by mstrba           ###   ########.fr       */
+/*   Created: 2023/11/28 09:01:45 by mstrba            #+#    #+#             */
+/*   Updated: 2023/11/28 09:11:44 by mstrba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../lib/fdf.h"
 
-void	isometric(int	*x, int	*y, int z)
+void	my_pixel_put(t_additional	*data, int x, int y, int color)
 {
-	*x = (*x - *y) * cos(0.8);
-	*y = (*x + *y) * cos(0.8) - z;
-}
+	char	*dst;
 
-void	fdf_do_isometric(int keycode, t_additional *dataset)
-{
-	if (keycode == YES)
-		dataset->do_isometric = 1;
-	else if (keycode == NO)
-		dataset->do_isometric = 0;
-	fdf_init_screen(&(dataset->data), dataset);
+	dst = data->img_string + (y * data->lsize + x * (data->bits / 8));
+	*(unsigned int *)dst = color;
 }
