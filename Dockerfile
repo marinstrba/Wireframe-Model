@@ -2,10 +2,16 @@ FROM ubuntu:22.04
 
 WORKDIR /app
 
-COPY . /app                              
+RUN apt-get update && apt-get install -y \
+    gcc \
+    make \
+    libx11-dev \
+    libxext-dev \
+    libxrandr-dev \
+    libbsd-dev
 
-RUN apt-get update && apt-get install -y gcc make
+COPY . /app                              
 
 RUN make 
 
-CMD [ "./myprogram" ]
+CMD [ "./myprogram", "map.txt" ]
