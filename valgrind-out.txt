@@ -1,1347 +1,199 @@
-==514614== Memcheck, a memory error detector
-==514614== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==514614== Using Valgrind-3.18.1-42b08ed5bd-20211015 and LibVEX; rerun with -h for copyright info
-==514614== Command: ./myprogram map.txt
-==514614== Parent PID: 461240
-==514614== 
---514614-- 
---514614-- Valgrind options:
---514614--    --leak-check=full
---514614--    --show-leak-kinds=all
---514614--    --track-origins=yes
---514614--    --verbose
---514614--    --log-file=valgrind-out.txt
---514614-- Contents of /proc/version:
---514614--   Linux version 5.15.0-88-generic (buildd@lcy02-amd64-058) (gcc (Ubuntu 11.4.0-1ubuntu1~22.04) 11.4.0, GNU ld (GNU Binutils for Ubuntu) 2.38) #98-Ubuntu SMP Mon Oct 2 15:18:56 UTC 2023
---514614-- 
---514614-- Arch and hwcaps: AMD64, LittleEndian, amd64-cx16-lzcnt-rdtscp-sse3-ssse3-avx-avx2-bmi-f16c-rdrand-rdseed
---514614-- Page sizes: currently 4096, max supported 4096
---514614-- Valgrind library directory: /usr/libexec/valgrind
---514614-- Reading syms from /nfs/homes/mstrba/42/CORE/fdf/myprogram
---514614-- Reading syms from /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
---514614--   Considering /usr/lib/debug/.build-id/97/18d3757f00d2366056830aae09698dbd35e32c.debug ..
---514614--   .. build-id is valid
---514614-- Reading syms from /usr/libexec/valgrind/memcheck-amd64-linux
---514614--    object doesn't have a symbol table
---514614--    object doesn't have a dynamic symbol table
---514614-- Scheduler: using generic scheduler lock implementation.
---514614-- Reading suppressions file: /usr/libexec/valgrind/default.supp
-==514614== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-514614-by-mstrba-on-???
-==514614== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-514614-by-mstrba-on-???
-==514614== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-514614-by-mstrba-on-???
-==514614== 
-==514614== TO CONTROL THIS PROCESS USING vgdb (which you probably
-==514614== don't want to do, unless you know exactly what you're doing,
-==514614== or are doing some strange experiment):
-==514614==   /usr/bin/vgdb --pid=514614 ...command...
-==514614== 
-==514614== TO DEBUG THIS PROCESS USING GDB: start GDB like this
-==514614==   /path/to/gdb ./myprogram
-==514614== and then give GDB the following command
-==514614==   target remote | /usr/bin/vgdb --pid=514614
-==514614== --pid is optional if only one valgrind process is running
-==514614== 
---514614-- REDIR: 0x402aa40 (ld-linux-x86-64.so.2:strlen) redirected to 0x580bcec2 (???)
---514614-- REDIR: 0x402a810 (ld-linux-x86-64.so.2:index) redirected to 0x580bcedc (???)
---514614-- Reading syms from /usr/libexec/valgrind/vgpreload_core-amd64-linux.so
---514614--    object doesn't have a symbol table
---514614-- Reading syms from /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so
---514614--    object doesn't have a symbol table
-==514614== WARNING: new redirection conflicts with existing -- ignoring it
---514614--     old: 0x0402aa40 (strlen              ) R-> (0000.0) 0x580bcec2 ???
---514614--     new: 0x0402aa40 (strlen              ) R-> (2007.0) 0x0484ee30 strlen
---514614-- REDIR: 0x4027220 (ld-linux-x86-64.so.2:strcmp) redirected to 0x484fcd0 (strcmp)
---514614-- REDIR: 0x402afa0 (ld-linux-x86-64.so.2:mempcpy) redirected to 0x4853840 (mempcpy)
---514614-- Reading syms from /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0
---514614--    object doesn't have a symbol table
---514614-- Reading syms from /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
---514614--    object doesn't have a symbol table
---514614-- Reading syms from /usr/lib/x86_64-linux-gnu/libc.so.6
---514614--   Considering /usr/lib/debug/.build-id/a4/3bfc8428df6623cd498c9c0caeb91aec9be4f9.debug ..
---514614--   .. build-id is valid
-==514614== WARNING: new redirection conflicts with existing -- ignoring it
---514614--     old: 0x04a6bc60 (memalign            ) R-> (1011.0) 0x0484e080 memalign
---514614--     new: 0x04a6bc60 (memalign            ) R-> (1017.0) 0x0484e050 aligned_alloc
-==514614== WARNING: new redirection conflicts with existing -- ignoring it
---514614--     old: 0x04a6bc60 (memalign            ) R-> (1011.0) 0x0484e080 memalign
---514614--     new: 0x04a6bc60 (memalign            ) R-> (1017.0) 0x0484e020 aligned_alloc
-==514614== WARNING: new redirection conflicts with existing -- ignoring it
---514614--     old: 0x04a6bc60 (memalign            ) R-> (1011.0) 0x0484e080 memalign
---514614--     new: 0x04a6bc60 (memalign            ) R-> (1017.0) 0x0484e050 aligned_alloc
-==514614== WARNING: new redirection conflicts with existing -- ignoring it
---514614--     old: 0x04a6bc60 (memalign            ) R-> (1011.0) 0x0484e080 memalign
---514614--     new: 0x04a6bc60 (memalign            ) R-> (1017.0) 0x0484e020 aligned_alloc
---514614-- Reading syms from /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0
---514614--    object doesn't have a symbol table
---514614-- Reading syms from /usr/lib/x86_64-linux-gnu/libXau.so.6.0.0
---514614--    object doesn't have a symbol table
---514614-- Reading syms from /usr/lib/x86_64-linux-gnu/libXdmcp.so.6.0.0
---514614--    object doesn't have a symbol table
---514614-- Reading syms from /usr/lib/x86_64-linux-gnu/libbsd.so.0.11.5
---514614--    object doesn't have a symbol table
---514614-- Reading syms from /usr/lib/x86_64-linux-gnu/libmd.so.0.0.5
---514614--    object doesn't have a symbol table
---514614-- REDIR: 0x4a6e720 (libc.so.6:strnlen) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
---514614-- REDIR: 0x4a6e9e0 (libc.so.6:strpbrk) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
---514614-- REDIR: 0x4a6e2e0 (libc.so.6:strcmp) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
---514614-- REDIR: 0x4a8ccd0 (libc.so.6:wcsnlen) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
---514614-- REDIR: 0x4a6f6d0 (libc.so.6:memset) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
---514614-- REDIR: 0x4a8b540 (libc.so.6:wcslen) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
---514614-- REDIR: 0x4a6fc10 (libc.so.6:memcpy@@GLIBC_2.14) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
---514614-- REDIR: 0x4a8b370 (libc.so.6:wcschr) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
---514614-- REDIR: 0x4a6e260 (libc.so.6:index) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
---514614-- REDIR: 0x4a6e960 (libc.so.6:rindex) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
---514614-- REDIR: 0x4a6f5a0 (libc.so.6:memmove) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
-==514614== Preferring higher priority redirection:
---514614--     old: 0x04b669c0 (__memcpy_avx_unalign) R-> (2018.0) 0x04850f90 __memcpy_avx_unaligned_erms
---514614--     new: 0x04b669c0 (__memcpy_avx_unalign) R-> (2018.1) 0x04852880 memmove
---514614-- REDIR: 0x4a8b3f0 (libc.so.6:wcscmp) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
---514614-- REDIR: 0x4a6f9e0 (libc.so.6:stpncpy) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
---514614-- REDIR: 0x4a8b9b0 (libc.so.6:wmemchr) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
---514614-- REDIR: 0x4a6e830 (libc.so.6:strncmp) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
---514614-- REDIR: 0x4a6fa70 (libc.so.6:strcasecmp) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
---514614-- REDIR: 0x4a6e420 (libc.so.6:strcspn) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
---514614-- REDIR: 0x4a8b470 (libc.so.6:wcscpy) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
---514614-- REDIR: 0x4a6e1d0 (libc.so.6:strcat) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
---514614-- REDIR: 0x4a6fb60 (libc.so.6:strncasecmp_l) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
---514614-- REDIR: 0x4a6f480 (libc.so.6:bcmp) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
---514614-- REDIR: 0x4a77570 (libc.so.6:memrchr) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
---514614-- REDIR: 0x4a71010 (libc.so.6:strchrnul) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
---514614-- REDIR: 0x4a6e390 (libc.so.6:strcpy) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
---514614-- REDIR: 0x4a6fb10 (libc.so.6:strcasecmp_l) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
---514614-- REDIR: 0x4a6e6a0 (libc.so.6:strlen) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
---514614-- REDIR: 0x4a6e8d0 (libc.so.6:strncpy) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
---514614-- REDIR: 0x4a6f950 (libc.so.6:stpcpy) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
---514614-- REDIR: 0x4a6f3f0 (libc.so.6:memchr) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
---514614-- REDIR: 0x4a6eb00 (libc.so.6:strspn) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
---514614-- REDIR: 0x4a6f7d0 (libc.so.6:mempcpy) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
---514614-- REDIR: 0x4a6fac0 (libc.so.6:strncasecmp) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
---514614-- REDIR: 0x4a70f80 (libc.so.6:rawmemchr) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
---514614-- REDIR: 0x4b63810 (libc.so.6:__strrchr_avx2) redirected to 0x484e810 (rindex)
---514614-- REDIR: 0x4a6b0a0 (libc.so.6:malloc) redirected to 0x4848820 (malloc)
---514614-- REDIR: 0x4a6c520 (libc.so.6:calloc) redirected to 0x484d9d0 (calloc)
---514614-- REDIR: 0x4a6b3e0 (libc.so.6:free) redirected to 0x484b210 (free)
-==514614== Conditional jump or move depends on uninitialised value(s)
-==514614==    at 0x10B660: fdf_read_map (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10A449: main (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==  Uninitialised value was created by a heap allocation
-==514614==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x10A414: main (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
---514614-- REDIR: 0x4b639e0 (libc.so.6:__strlen_avx2) redirected to 0x484ed10 (strlen)
---514614-- REDIR: 0x4b5ef80 (libc.so.6:__strncmp_avx2) redirected to 0x484f3e0 (strncmp)
---514614-- REDIR: 0x4b669c0 (libc.so.6:__memcpy_avx_unaligned_erms) redirected to 0x4852880 (memmove)
---514614-- REDIR: 0x4b63600 (libc.so.6:__strchrnul_avx2) redirected to 0x4853330 (strchrnul)
---514614-- REDIR: 0x4afa9d0 (libc.so.6:__strcpy_chk) redirected to 0x48533a0 (__strcpy_chk)
---514614-- REDIR: 0x4a6efc0 (libc.so.6:__GI_strstr) redirected to 0x4853ae0 (__strstr_sse2)
---514614-- REDIR: 0x4b5fc80 (libc.so.6:__memcmp_avx2_movbe) redirected to 0x4852010 (bcmp)
---514614-- REDIR: 0x4b67180 (libc.so.6:__memset_avx2_unaligned_erms) redirected to 0x4852770 (memset)
---514614-- REDIR: 0x4a6b740 (libc.so.6:realloc) redirected to 0x484dc50 (realloc)
---514614-- REDIR: 0x4b65240 (libc.so.6:__strncpy_avx2) redirected to 0x484efe0 (strncpy)
---514614-- REDIR: 0x4b5eb40 (libc.so.6:__strcmp_avx2) redirected to 0x484fbd0 (strcmp)
---514614-- REDIR: 0x4b64eb0 (libc.so.6:__strcpy_avx2) redirected to 0x484ee60 (strcpy)
-==514614== Conditional jump or move depends on uninitialised value(s)
-==514614==    at 0x484B235: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x10AE05: close_window (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B175: fdf_controls_key_press (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10D635: mlx_loop (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B3FB: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B136: fdf_full_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B191: fdf_controls_key_press (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10D635: mlx_loop (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B3FB: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B136: fdf_full_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B191: fdf_controls_key_press (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10D635: mlx_loop (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==  Uninitialised value was created by a heap allocation
-==514614==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x10A414: main (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 
-==514614== HEAP SUMMARY:
-==514614==     in use at exit: 218,258 bytes in 212 blocks
-==514614==   total heap usage: 15,321 allocs, 15,109 frees, 1,113,983 bytes allocated
-==514614== 
-==514614== Searching for pointers to 212 not-freed blocks
-==514614== Checked 366,352 bytes
-==514614== 
-==514614== 3 bytes in 1 blocks are still reachable in loss record 1 of 101
-==514614==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x4A6E58E: strdup (strdup.c:42)
-==514614==    by 0x48B5B45: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x10D187: mlx_init (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B341: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10A497: main (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 3 bytes in 1 blocks are still reachable in loss record 2 of 101
-==514614==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x4A6E58E: strdup (strdup.c:42)
-==514614==    by 0x48B5B45: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x10D187: mlx_init (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B341: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B136: fdf_full_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B191: fdf_controls_key_press (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10D635: mlx_loop (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B3FB: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10A497: main (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 8 bytes in 1 blocks are still reachable in loss record 3 of 101
-==514614==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x4A6E58E: strdup (strdup.c:42)
-==514614==    by 0x48B29AE: XInitExtension (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x4877820: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
-==514614==    by 0x487C9E2: XShmQueryVersion (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
-==514614==    by 0x10CFC3: mlx_int_deal_shm (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10D241: mlx_init (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B341: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10A497: main (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 8 bytes in 1 blocks are still reachable in loss record 4 of 101
-==514614==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x4875B34: ??? (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
-==514614==    by 0x48779DF: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
-==514614==    by 0x487C9E2: XShmQueryVersion (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
-==514614==    by 0x10CFC3: mlx_int_deal_shm (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10D241: mlx_init (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B341: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10A497: main (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 8 bytes in 1 blocks are still reachable in loss record 5 of 101
-==514614==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x4A6E58E: strdup (strdup.c:42)
-==514614==    by 0x48B29AE: XInitExtension (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x4877820: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
-==514614==    by 0x487C9E2: XShmQueryVersion (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
-==514614==    by 0x10CFC3: mlx_int_deal_shm (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10D241: mlx_init (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B341: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B136: fdf_full_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B191: fdf_controls_key_press (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10D635: mlx_loop (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B3FB: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 8 bytes in 1 blocks are still reachable in loss record 6 of 101
-==514614==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x4875B34: ??? (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
-==514614==    by 0x48779DF: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
-==514614==    by 0x487C9E2: XShmQueryVersion (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
-==514614==    by 0x10CFC3: mlx_int_deal_shm (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10D241: mlx_init (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B341: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B136: fdf_full_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B191: fdf_controls_key_press (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10D635: mlx_loop (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B3FB: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10A497: main (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 10 bytes in 1 blocks are still reachable in loss record 7 of 101
-==514614==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x4A6E58E: strdup (strdup.c:42)
-==514614==    by 0x48B29AE: XInitExtension (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x491C213: XkbUseExtension (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x48B66A8: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x10D187: mlx_init (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B341: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10A497: main (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 10 bytes in 1 blocks are still reachable in loss record 8 of 101
-==514614==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x4A6E58E: strdup (strdup.c:42)
-==514614==    by 0x48B29AE: XInitExtension (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x491C213: XkbUseExtension (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x48B66A8: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x10D187: mlx_init (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B341: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B136: fdf_full_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B191: fdf_controls_key_press (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10D635: mlx_loop (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B3FB: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10A497: main (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 16 bytes in 1 blocks are still reachable in loss record 9 of 101
-==514614==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x4BFD2EE: xcb_connect_to_fd (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
-==514614==    by 0x4BFDE6B: xcb_connect_to_display_with_auth_info (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
-==514614==    by 0x48C5EE9: _XConnectXCB (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x48B5B68: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x10D187: mlx_init (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B341: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10A497: main (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 16 bytes in 1 blocks are still reachable in loss record 10 of 101
-==514614==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x4BFD2EE: xcb_connect_to_fd (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
-==514614==    by 0x4BFDE6B: xcb_connect_to_display_with_auth_info (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
-==514614==    by 0x48C5EE9: _XConnectXCB (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x48B5B68: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x10D187: mlx_init (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B341: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B136: fdf_full_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B191: fdf_controls_key_press (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10D635: mlx_loop (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B3FB: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10A497: main (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 21 bytes in 1 blocks are still reachable in loss record 11 of 101
-==514614==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x48B603E: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x10D187: mlx_init (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B341: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10A497: main (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 21 bytes in 1 blocks are still reachable in loss record 12 of 101
-==514614==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x48B603E: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x10D187: mlx_init (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B341: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B136: fdf_full_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B191: fdf_controls_key_press (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10D635: mlx_loop (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B3FB: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10A497: main (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 24 bytes in 1 blocks are still reachable in loss record 13 of 101
-==514614==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x4877041: XextCreateExtension (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
-==514614==    by 0x48774CC: ??? (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
-==514614==    by 0x48779C8: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
-==514614==    by 0x487C9E2: XShmQueryVersion (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
-==514614==    by 0x10CFC3: mlx_int_deal_shm (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10D241: mlx_init (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B341: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10A497: main (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 24 bytes in 1 blocks are still reachable in loss record 14 of 101
-==514614==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x4A6E58E: strdup (strdup.c:42)
-==514614==    by 0x48B29AE: XInitExtension (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x4877820: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
-==514614==    by 0x487750A: ??? (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
-==514614==    by 0x48779C8: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
-==514614==    by 0x487C9E2: XShmQueryVersion (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
-==514614==    by 0x10CFC3: mlx_int_deal_shm (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10D241: mlx_init (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B341: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10A497: main (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 24 bytes in 1 blocks are still reachable in loss record 15 of 101
-==514614==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x48779F5: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
-==514614==    by 0x487C9E2: XShmQueryVersion (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
-==514614==    by 0x10CFC3: mlx_int_deal_shm (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10D241: mlx_init (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B341: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10A497: main (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 24 bytes in 1 blocks are still reachable in loss record 16 of 101
-==514614==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x4A6E58E: strdup (strdup.c:42)
-==514614==    by 0x48B29AE: XInitExtension (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x4877820: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
-==514614==    by 0x487750A: ??? (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
-==514614==    by 0x48779C8: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
-==514614==    by 0x487C9E2: XShmQueryVersion (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
-==514614==    by 0x10CFC3: mlx_int_deal_shm (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10D241: mlx_init (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B341: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B136: fdf_full_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B191: fdf_controls_key_press (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 24 bytes in 1 blocks are still reachable in loss record 17 of 101
-==514614==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x48779F5: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
-==514614==    by 0x487C9E2: XShmQueryVersion (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
-==514614==    by 0x10CFC3: mlx_int_deal_shm (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10D241: mlx_init (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B341: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B136: fdf_full_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B191: fdf_controls_key_press (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10D635: mlx_loop (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B3FB: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10A497: main (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 29 bytes in 1 blocks are still reachable in loss record 18 of 101
-==514614==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x48AF0CD: _XUpdateAtomCache (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x48B1929: XInternAtom (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x10D232: mlx_init (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B341: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10A497: main (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 29 bytes in 1 blocks are still reachable in loss record 19 of 101
-==514614==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x48AF0CD: _XUpdateAtomCache (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x48B1929: XInternAtom (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x10D232: mlx_init (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B341: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B136: fdf_full_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B191: fdf_controls_key_press (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10D635: mlx_loop (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B3FB: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10A497: main (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 32 bytes in 1 blocks are still reachable in loss record 20 of 101
-==514614==    at 0x48487A9: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x4C0115E: ??? (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
-==514614==    by 0x4C01237: xcb_get_extension_data (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
-==514614==    by 0x4C012EE: xcb_prefetch_maximum_request_length (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
-==514614==    by 0x4C01364: xcb_get_maximum_request_length (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
-==514614==    by 0x48B652B: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x10D187: mlx_init (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B341: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10A497: main (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 32 bytes in 1 blocks are still reachable in loss record 21 of 101
-==514614==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x4BFA1B7: ??? (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
-==514614==    by 0x4BFAA08: ??? (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
-==514614==    by 0x4BFAEB0: ??? (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
-==514614==    by 0x4BFBE44: xcb_wait_for_reply (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
-==514614==    by 0x4C01292: xcb_get_extension_data (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
-==514614==    by 0x4C012EE: xcb_prefetch_maximum_request_length (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
-==514614==    by 0x4C01364: xcb_get_maximum_request_length (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
-==514614==    by 0x48B652B: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x10D187: mlx_init (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B341: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10A497: main (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 32 bytes in 1 blocks are still reachable in loss record 22 of 101
-==514614==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x48777FF: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
-==514614==    by 0x487C9E2: XShmQueryVersion (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
-==514614==    by 0x10CFC3: mlx_int_deal_shm (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10D241: mlx_init (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B341: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10A497: main (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 32 bytes in 1 blocks are still reachable in loss record 23 of 101
-==514614==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x48777FF: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
-==514614==    by 0x487750A: ??? (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
-==514614==    by 0x48779C8: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
-==514614==    by 0x487C9E2: XShmQueryVersion (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
-==514614==    by 0x10CFC3: mlx_int_deal_shm (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10D241: mlx_init (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B341: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10A497: main (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 32 bytes in 1 blocks are still reachable in loss record 24 of 101
-==514614==    at 0x48487A9: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x4C0115E: ??? (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
-==514614==    by 0x4C01237: xcb_get_extension_data (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
-==514614==    by 0x4C012EE: xcb_prefetch_maximum_request_length (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
-==514614==    by 0x4C01364: xcb_get_maximum_request_length (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
-==514614==    by 0x48B652B: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x10D187: mlx_init (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B341: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B136: fdf_full_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B191: fdf_controls_key_press (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10D635: mlx_loop (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B3FB: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 32 bytes in 1 blocks are still reachable in loss record 25 of 101
-==514614==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x4BFA1B7: ??? (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
-==514614==    by 0x4BFAA08: ??? (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
-==514614==    by 0x4BFAEB0: ??? (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
-==514614==    by 0x4BFBE44: xcb_wait_for_reply (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
-==514614==    by 0x4C01292: xcb_get_extension_data (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
-==514614==    by 0x4C012EE: xcb_prefetch_maximum_request_length (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
-==514614==    by 0x4C01364: xcb_get_maximum_request_length (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
-==514614==    by 0x48B652B: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x10D187: mlx_init (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B341: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B136: fdf_full_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 32 bytes in 1 blocks are still reachable in loss record 26 of 101
-==514614==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x48777FF: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
-==514614==    by 0x487C9E2: XShmQueryVersion (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
-==514614==    by 0x10CFC3: mlx_int_deal_shm (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10D241: mlx_init (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B341: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B136: fdf_full_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B191: fdf_controls_key_press (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10D635: mlx_loop (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B3FB: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10A497: main (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 32 bytes in 1 blocks are still reachable in loss record 27 of 101
-==514614==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x48777FF: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
-==514614==    by 0x487750A: ??? (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
-==514614==    by 0x48779C8: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
-==514614==    by 0x487C9E2: XShmQueryVersion (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
-==514614==    by 0x10CFC3: mlx_int_deal_shm (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10D241: mlx_init (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B341: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B136: fdf_full_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B191: fdf_controls_key_press (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10D635: mlx_loop (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B3FB: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 33 bytes in 1 blocks are still reachable in loss record 28 of 101
-==514614==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x48AF0CD: _XUpdateAtomCache (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x48B1929: XInternAtom (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x10D21B: mlx_init (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B341: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10A497: main (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 33 bytes in 1 blocks are still reachable in loss record 29 of 101
-==514614==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x48AF0CD: _XUpdateAtomCache (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x48B1929: XInternAtom (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x10D21B: mlx_init (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B341: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B136: fdf_full_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B191: fdf_controls_key_press (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10D635: mlx_loop (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B3FB: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10A497: main (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 40 bytes in 1 blocks are still reachable in loss record 30 of 101
-==514614==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x48C61F1: _XPollfdCacheInit (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x48B5E71: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x10D187: mlx_init (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B341: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10A497: main (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 40 bytes in 1 blocks are still reachable in loss record 31 of 101
-==514614==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x48C61F1: _XPollfdCacheInit (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x48B5E71: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x10D187: mlx_init (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B341: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B136: fdf_full_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B191: fdf_controls_key_press (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10D635: mlx_loop (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B3FB: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10A497: main (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 48 bytes in 1 blocks are still reachable in loss record 32 of 101
-==514614==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x48C5E71: _XConnectXCB (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x48B5B68: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x10D187: mlx_init (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B341: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10A497: main (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 48 bytes in 1 blocks are still reachable in loss record 33 of 101
-==514614==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x48C5E87: _XConnectXCB (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x48B5B68: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x10D187: mlx_init (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B341: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10A497: main (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 48 bytes in 1 blocks are still reachable in loss record 34 of 101
-==514614==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x49144C0: XkbGetMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x4914542: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x49148AF: XkbKeycodeToKeysym (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x10DC47: mlx_int_param_KeyRelease (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10D635: mlx_loop (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B3FB: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10A497: main (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 48 bytes in 1 blocks are still reachable in loss record 35 of 101
-==514614==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x48C5E71: _XConnectXCB (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x48B5B68: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x10D187: mlx_init (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B341: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B136: fdf_full_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B191: fdf_controls_key_press (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10D635: mlx_loop (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B3FB: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10A497: main (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 48 bytes in 1 blocks are still reachable in loss record 36 of 101
-==514614==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x48C5E87: _XConnectXCB (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x48B5B68: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x10D187: mlx_init (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B341: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B136: fdf_full_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B191: fdf_controls_key_press (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10D635: mlx_loop (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B3FB: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10A497: main (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 48 bytes in 1 blocks are still reachable in loss record 37 of 101
-==514614==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x49144C0: XkbGetMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x4914542: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x49148AF: XkbKeycodeToKeysym (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x10DC47: mlx_int_param_KeyRelease (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10D635: mlx_loop (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B3FB: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B136: fdf_full_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B191: fdf_controls_key_press (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10D635: mlx_loop (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B3FB: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10A497: main (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 48 bytes in 2 blocks are still reachable in loss record 38 of 101
-==514614==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x48C3A65: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x48C75EE: _XSend (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x48CC2A0: _XReply (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x48A8734: _XGetWindowAttributes (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x48A889D: XGetWindowAttributes (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x10DDB4: mlx_get_screen_size (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10AFF1: fdf_fs_help (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B123: fdf_full_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B191: fdf_controls_key_press (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10D635: mlx_loop (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B3FB: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 72 bytes in 1 blocks are still reachable in loss record 39 of 101
-==514614==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x48B5F20: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x10D187: mlx_init (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B341: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10A497: main (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 72 bytes in 1 blocks are still reachable in loss record 40 of 101
-==514614==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x49144A4: XkbGetMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x4914542: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x49148AF: XkbKeycodeToKeysym (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x10DC47: mlx_int_param_KeyRelease (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10D635: mlx_loop (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B3FB: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10A497: main (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 72 bytes in 1 blocks are still reachable in loss record 41 of 101
-==514614==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x48B5F20: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x10D187: mlx_init (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B341: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B136: fdf_full_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B191: fdf_controls_key_press (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10D635: mlx_loop (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B3FB: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10A497: main (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 72 bytes in 1 blocks are still reachable in loss record 42 of 101
-==514614==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x49144A4: XkbGetMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x4914542: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x49148AF: XkbKeycodeToKeysym (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x10DC47: mlx_int_param_KeyRelease (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10D635: mlx_loop (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B3FB: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B136: fdf_full_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B191: fdf_controls_key_press (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10D635: mlx_loop (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B3FB: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10A497: main (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 112 bytes in 1 blocks are still reachable in loss record 43 of 101
-==514614==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x48C5D72: _XConnectXCB (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x48B5B68: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x10D187: mlx_init (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B341: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10A497: main (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 112 bytes in 1 blocks are still reachable in loss record 44 of 101
-==514614==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x48B6200: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x10D187: mlx_init (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B341: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10A497: main (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 112 bytes in 1 blocks are still reachable in loss record 45 of 101
-==514614==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x48C5D72: _XConnectXCB (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x48B5B68: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x10D187: mlx_init (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B341: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B136: fdf_full_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B191: fdf_controls_key_press (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10D635: mlx_loop (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B3FB: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10A497: main (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 112 bytes in 1 blocks are still reachable in loss record 46 of 101
-==514614==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x48B6200: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x10D187: mlx_init (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B341: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B136: fdf_full_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B191: fdf_controls_key_press (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10D635: mlx_loop (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B3FB: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10A497: main (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 128 bytes in 1 blocks are still reachable in loss record 47 of 101
-==514614==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x48B612E: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x10D187: mlx_init (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B341: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10A497: main (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 128 bytes in 1 blocks are still reachable in loss record 48 of 101
-==514614==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x48B299E: XInitExtension (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x491C213: XkbUseExtension (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x48B66A8: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x10D187: mlx_init (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B341: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10A497: main (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 128 bytes in 1 blocks are still reachable in loss record 49 of 101
-==514614==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x48B299E: XInitExtension (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x4877820: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
-==514614==    by 0x487C9E2: XShmQueryVersion (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
-==514614==    by 0x10CFC3: mlx_int_deal_shm (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10D241: mlx_init (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B341: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10A497: main (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 128 bytes in 1 blocks are still reachable in loss record 50 of 101
-==514614==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x48B299E: XInitExtension (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x4877820: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
-==514614==    by 0x487750A: ??? (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
-==514614==    by 0x48779C8: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
-==514614==    by 0x487C9E2: XShmQueryVersion (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
-==514614==    by 0x10CFC3: mlx_int_deal_shm (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10D241: mlx_init (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B341: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10A497: main (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 128 bytes in 1 blocks are still reachable in loss record 51 of 101
-==514614==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x48B612E: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x10D187: mlx_init (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B341: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B136: fdf_full_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B191: fdf_controls_key_press (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10D635: mlx_loop (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B3FB: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10A497: main (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 128 bytes in 1 blocks are still reachable in loss record 52 of 101
-==514614==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x48B299E: XInitExtension (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x491C213: XkbUseExtension (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x48B66A8: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x10D187: mlx_init (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B341: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B136: fdf_full_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B191: fdf_controls_key_press (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10D635: mlx_loop (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B3FB: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10A497: main (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 128 bytes in 1 blocks are still reachable in loss record 53 of 101
-==514614==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x48B299E: XInitExtension (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x4877820: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
-==514614==    by 0x487C9E2: XShmQueryVersion (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
-==514614==    by 0x10CFC3: mlx_int_deal_shm (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10D241: mlx_init (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B341: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B136: fdf_full_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B191: fdf_controls_key_press (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10D635: mlx_loop (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B3FB: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10A497: main (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 128 bytes in 1 blocks are still reachable in loss record 54 of 101
-==514614==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x48B299E: XInitExtension (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x4877820: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
-==514614==    by 0x487750A: ??? (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
-==514614==    by 0x48779C8: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
-==514614==    by 0x487C9E2: XShmQueryVersion (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
-==514614==    by 0x10CFC3: mlx_int_deal_shm (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10D241: mlx_init (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B341: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B136: fdf_full_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B191: fdf_controls_key_press (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10D635: mlx_loop (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 136 bytes in 1 blocks are still reachable in loss record 55 of 101
-==514614==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x10D16F: mlx_init (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B341: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10A497: main (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 136 bytes in 1 blocks are still reachable in loss record 56 of 101
-==514614==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x10D16F: mlx_init (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B341: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B136: fdf_full_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B191: fdf_controls_key_press (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10D635: mlx_loop (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B3FB: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10A497: main (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 136 bytes in 1 blocks are still reachable in loss record 57 of 101
-==514614==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x10D16F: mlx_init (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B341: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B136: fdf_full_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B191: fdf_controls_key_press (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10D635: mlx_loop (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B3FB: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B136: fdf_full_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B191: fdf_controls_key_press (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10D635: mlx_loop (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B3FB: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10A497: main (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 149 bytes in 1 blocks are still reachable in loss record 58 of 101
-==514614==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x48B6710: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x10D187: mlx_init (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B341: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10A497: main (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 149 bytes in 1 blocks are still reachable in loss record 59 of 101
-==514614==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x48B6710: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x10D187: mlx_init (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B341: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B136: fdf_full_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B191: fdf_controls_key_press (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10D635: mlx_loop (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B3FB: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10A497: main (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 152 bytes in 1 blocks are still reachable in loss record 60 of 101
-==514614==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x491C40E: XkbUseExtension (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x48B66A8: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x10D187: mlx_init (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B341: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10A497: main (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 152 bytes in 1 blocks are still reachable in loss record 61 of 101
-==514614==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x491C40E: XkbUseExtension (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x48B66A8: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x10D187: mlx_init (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B341: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B136: fdf_full_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B191: fdf_controls_key_press (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10D635: mlx_loop (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B3FB: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10A497: main (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 160 bytes in 1 blocks are still reachable in loss record 62 of 101
-==514614==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x48A49EF: XCreateGC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x48B65A4: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x10D187: mlx_init (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B341: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10A497: main (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 160 bytes in 1 blocks are still reachable in loss record 63 of 101
-==514614==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x48A49EF: XCreateGC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x48B65A4: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x10D187: mlx_init (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B341: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B136: fdf_full_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B191: fdf_controls_key_press (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10D635: mlx_loop (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B3FB: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10A497: main (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 168 bytes in 1 blocks are still reachable in loss record 64 of 101
-==514614==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x48B60B2: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x10D187: mlx_init (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B341: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10A497: main (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 168 bytes in 1 blocks are still reachable in loss record 65 of 101
-==514614==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x48B60B2: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x10D187: mlx_init (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B341: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B136: fdf_full_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B191: fdf_controls_key_press (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10D635: mlx_loop (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B3FB: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10A497: main (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 208 bytes in 1 blocks are still reachable in loss record 66 of 101
-==514614==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x4875AE9: ??? (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
-==514614==    by 0x48779DF: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
-==514614==    by 0x487C9E2: XShmQueryVersion (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
-==514614==    by 0x10CFC3: mlx_int_deal_shm (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10D241: mlx_init (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B341: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10A497: main (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 208 bytes in 1 blocks are still reachable in loss record 67 of 101
-==514614==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x48C7FAE: _XEnq (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x48CABB6: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x48CBEC0: _XReadEvents (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x48CC205: XWindowEvent (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x10D7A5: mlx_int_wait_first_expose (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10D3FD: mlx_new_window (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B366: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10A497: main (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 208 bytes in 1 blocks are still reachable in loss record 68 of 101
-==514614==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x48C7FAE: _XEnq (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x48CABB6: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x48CBEC0: _XReadEvents (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x48CC1D0: XWindowEvent (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x10D7A5: mlx_int_wait_first_expose (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10D3FD: mlx_new_window (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B366: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10A497: main (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 208 bytes in 1 blocks are still reachable in loss record 69 of 101
-==514614==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x4875AE9: ??? (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
-==514614==    by 0x48779DF: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
-==514614==    by 0x487C9E2: XShmQueryVersion (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
-==514614==    by 0x10CFC3: mlx_int_deal_shm (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10D241: mlx_init (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B341: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B136: fdf_full_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B191: fdf_controls_key_press (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10D635: mlx_loop (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B3FB: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10A497: main (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 208 bytes in 1 blocks are still reachable in loss record 70 of 101
-==514614==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x48C7FAE: _XEnq (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x48CABB6: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x48CBEC0: _XReadEvents (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x48CC205: XWindowEvent (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x10D7A5: mlx_int_wait_first_expose (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10D3FD: mlx_new_window (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B366: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B136: fdf_full_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B191: fdf_controls_key_press (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10D635: mlx_loop (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B3FB: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 256 bytes in 1 blocks are still reachable in loss record 71 of 101
-==514614==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x491955D: XkbAllocClientMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x49140DE: _XkbReadGetMapReply (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x491441E: XkbGetUpdatedMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x49144F4: XkbGetMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x4914542: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x49148AF: XkbKeycodeToKeysym (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x10DC47: mlx_int_param_KeyRelease (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10D635: mlx_loop (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B3FB: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10A497: main (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 256 bytes in 1 blocks are still reachable in loss record 72 of 101
-==514614==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x491955D: XkbAllocClientMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x49140DE: _XkbReadGetMapReply (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x491441E: XkbGetUpdatedMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x49144F4: XkbGetMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x4914542: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x49148AF: XkbKeycodeToKeysym (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x10DC47: mlx_int_param_KeyRelease (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10D635: mlx_loop (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B3FB: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B136: fdf_full_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B191: fdf_controls_key_press (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 344 bytes in 6 blocks are still reachable in loss record 73 of 101
-==514614==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x49138F5: _XkbReadGetMapReply (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x491441E: XkbGetUpdatedMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x49144F4: XkbGetMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x4914542: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x49148AF: XkbKeycodeToKeysym (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x10DC47: mlx_int_param_KeyRelease (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10D635: mlx_loop (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B3FB: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10A497: main (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 344 bytes in 6 blocks are still reachable in loss record 74 of 101
-==514614==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x49138F5: _XkbReadGetMapReply (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x491441E: XkbGetUpdatedMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x49144F4: XkbGetMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x4914542: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x49148AF: XkbKeycodeToKeysym (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x10DC47: mlx_int_param_KeyRelease (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10D635: mlx_loop (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B3FB: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B136: fdf_full_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B191: fdf_controls_key_press (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10D635: mlx_loop (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 416 bytes in 2 blocks are still reachable in loss record 75 of 101
-==514614==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x48C7FAE: _XEnq (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x48CABB6: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x48CBF01: _XReadEvents (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x48CC205: XWindowEvent (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x10D7A5: mlx_int_wait_first_expose (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10D3FD: mlx_new_window (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B366: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B136: fdf_full_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B191: fdf_controls_key_press (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10D635: mlx_loop (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B3FB: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 512 bytes in 1 blocks are still reachable in loss record 76 of 101
-==514614==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x48B146A: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x48B184E: XInternAtom (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x10D21B: mlx_init (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B341: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10A497: main (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 512 bytes in 1 blocks are still reachable in loss record 77 of 101
-==514614==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x48B146A: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x48B184E: XInternAtom (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x10D21B: mlx_init (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B341: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B136: fdf_full_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B191: fdf_controls_key_press (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10D635: mlx_loop (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B3FB: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10A497: main (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 832 bytes in 4 blocks are still reachable in loss record 78 of 101
-==514614==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x48C7FAE: _XEnq (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x48CABB6: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x48CAC69: _XEventsQueued (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x48A587D: XFlush (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x10D947: mlx_string_put (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10BB4B: fdf_print_map_info (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10BCC2: fdf_print_menu (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10A7CD: fdf_draw (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B384: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10A497: main (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 832 bytes in 4 blocks are still reachable in loss record 79 of 101
-==514614==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x48C7FAE: _XEnq (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x48CABB6: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x48CAC69: _XEventsQueued (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x48A587D: XFlush (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x10D4CF: mlx_pixel_put (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10A8DF: draw_line (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10A512: fdf_bresenham (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10A7FF: fdf_draw (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B384: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B136: fdf_full_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B191: fdf_controls_key_press (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 1,120 bytes in 1 blocks are still reachable in loss record 80 of 101
-==514614==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x4919619: XkbAllocClientMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x4913EB7: _XkbReadGetMapReply (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x491441E: XkbGetUpdatedMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x49144F4: XkbGetMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x4914542: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x49148AF: XkbKeycodeToKeysym (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x10DC47: mlx_int_param_KeyRelease (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10D635: mlx_loop (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B3FB: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10A497: main (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 1,120 bytes in 1 blocks are still reachable in loss record 81 of 101
-==514614==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x4919619: XkbAllocClientMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x4913EB7: _XkbReadGetMapReply (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x491441E: XkbGetUpdatedMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x49144F4: XkbGetMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x4914542: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x49148AF: XkbKeycodeToKeysym (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x10DC47: mlx_int_param_KeyRelease (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10D635: mlx_loop (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B3FB: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B136: fdf_full_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B191: fdf_controls_key_press (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 1,248 bytes in 6 blocks are still reachable in loss record 82 of 101
-==514614==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x48C7FAE: _XEnq (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x48CABB6: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x48CBEC0: _XReadEvents (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x48CC1D0: XWindowEvent (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x10D7A5: mlx_int_wait_first_expose (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10D3FD: mlx_new_window (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B366: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B136: fdf_full_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B191: fdf_controls_key_press (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10D635: mlx_loop (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B3FB: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 1,456 bytes in 7 blocks are still reachable in loss record 83 of 101
-==514614==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x48C7FAE: _XEnq (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x48CABB6: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x48CBF01: _XReadEvents (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x48CC1D0: XWindowEvent (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x10D7A5: mlx_int_wait_first_expose (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10D3FD: mlx_new_window (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B366: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10A497: main (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 2,016 bytes in 27 blocks are still reachable in loss record 84 of 101
-==514614==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x49137DD: _XkbReadGetMapReply (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x491441E: XkbGetUpdatedMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x49144F4: XkbGetMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x4914542: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x49148AF: XkbKeycodeToKeysym (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x10DC47: mlx_int_param_KeyRelease (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10D635: mlx_loop (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B3FB: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10A497: main (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 2,016 bytes in 27 blocks are still reachable in loss record 85 of 101
-==514614==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x49137DD: _XkbReadGetMapReply (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x491441E: XkbGetUpdatedMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x49144F4: XkbGetMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x4914542: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x49148AF: XkbKeycodeToKeysym (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x10DC47: mlx_int_param_KeyRelease (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10D635: mlx_loop (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B3FB: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B136: fdf_full_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B191: fdf_controls_key_press (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10D635: mlx_loop (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 2,048 bytes in 1 blocks are still reachable in loss record 86 of 101
-==514614==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x4913914: _XkbReadGetMapReply (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x491441E: XkbGetUpdatedMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x49144F4: XkbGetMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x4914542: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x49148AF: XkbKeycodeToKeysym (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x10DC47: mlx_int_param_KeyRelease (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10D635: mlx_loop (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B3FB: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10A497: main (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 2,048 bytes in 1 blocks are still reachable in loss record 87 of 101
-==514614==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x4913914: _XkbReadGetMapReply (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x491441E: XkbGetUpdatedMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x49144F4: XkbGetMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x4914542: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x49148AF: XkbKeycodeToKeysym (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x10DC47: mlx_int_param_KeyRelease (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10D635: mlx_loop (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B3FB: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B136: fdf_full_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B191: fdf_controls_key_press (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10D635: mlx_loop (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 2,704 bytes in 13 blocks are still reachable in loss record 88 of 101
-==514614==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x48C7FAE: _XEnq (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x48CABB6: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x48CBF01: _XReadEvents (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x48CC205: XWindowEvent (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x10D7A5: mlx_int_wait_first_expose (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10D3FD: mlx_new_window (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B366: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10A497: main (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 3,536 bytes in 17 blocks are still reachable in loss record 89 of 101
-==514614==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x48C7FAE: _XEnq (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x48CABB6: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x48CBF01: _XReadEvents (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x48CC1D0: XWindowEvent (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x10D7A5: mlx_int_wait_first_expose (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10D3FD: mlx_new_window (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B366: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B136: fdf_full_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B191: fdf_controls_key_press (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10D635: mlx_loop (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B3FB: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 4,096 bytes in 1 blocks are still reachable in loss record 90 of 101
-==514614==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x491413E: _XkbReadGetMapReply (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x491441E: XkbGetUpdatedMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x49144F4: XkbGetMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x4914542: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x49148AF: XkbKeycodeToKeysym (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x10DC47: mlx_int_param_KeyRelease (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10D635: mlx_loop (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B3FB: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10A497: main (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 4,096 bytes in 1 blocks are still reachable in loss record 91 of 101
-==514614==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x491413E: _XkbReadGetMapReply (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x491441E: XkbGetUpdatedMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x49144F4: XkbGetMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x4914542: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x49148AF: XkbKeycodeToKeysym (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x10DC47: mlx_int_param_KeyRelease (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10D635: mlx_loop (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B3FB: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B136: fdf_full_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B191: fdf_controls_key_press (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10D635: mlx_loop (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 4,704 bytes in 1 blocks are still reachable in loss record 92 of 101
-==514614==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x48B5B31: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x10D187: mlx_init (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B341: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10A497: main (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 4,704 bytes in 1 blocks are still reachable in loss record 93 of 101
-==514614==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x48B5B31: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x10D187: mlx_init (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B341: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B136: fdf_full_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B191: fdf_controls_key_press (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10D635: mlx_loop (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B3FB: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10A497: main (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 14,612 bytes in 1 blocks are still reachable in loss record 94 of 101
-==514614==    at 0x484DCD3: realloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x4BFD4FB: xcb_connect_to_fd (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
-==514614==    by 0x4BFDE6B: xcb_connect_to_display_with_auth_info (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
-==514614==    by 0x48C5EE9: _XConnectXCB (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x48B5B68: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x10D187: mlx_init (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B341: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10A497: main (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 14,612 bytes in 1 blocks are still reachable in loss record 95 of 101
-==514614==    at 0x484DCD3: realloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x4BFD4FB: xcb_connect_to_fd (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
-==514614==    by 0x4BFDE6B: xcb_connect_to_display_with_auth_info (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
-==514614==    by 0x48C5EE9: _XConnectXCB (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x48B5B68: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x10D187: mlx_init (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B341: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B136: fdf_full_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B191: fdf_controls_key_press (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10D635: mlx_loop (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B3FB: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10A497: main (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 16,384 bytes in 1 blocks are still reachable in loss record 96 of 101
-==514614==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x48B5EBE: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x10D187: mlx_init (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B341: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10A497: main (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 16,384 bytes in 1 blocks are still reachable in loss record 97 of 101
-==514614==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x48B5EBE: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x10D187: mlx_init (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B341: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B136: fdf_full_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B191: fdf_controls_key_press (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10D635: mlx_loop (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B3FB: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10A497: main (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 21,168 bytes in 1 blocks are still reachable in loss record 98 of 101
-==514614==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x4BFD204: xcb_connect_to_fd (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
-==514614==    by 0x4BFDE6B: xcb_connect_to_display_with_auth_info (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
-==514614==    by 0x48C5EE9: _XConnectXCB (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x48B5B68: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x10D187: mlx_init (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B341: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10A497: main (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 21,168 bytes in 1 blocks are still reachable in loss record 99 of 101
-==514614==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x4BFD204: xcb_connect_to_fd (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
-==514614==    by 0x4BFDE6B: xcb_connect_to_display_with_auth_info (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
-==514614==    by 0x48C5EE9: _XConnectXCB (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x48B5B68: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x10D187: mlx_init (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B341: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B136: fdf_full_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B191: fdf_controls_key_press (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10D635: mlx_loop (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B3FB: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10A497: main (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 33,600 bytes in 2 blocks are still reachable in loss record 100 of 101
-==514614==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x48B6290: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x10D187: mlx_init (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B341: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10A497: main (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 33,600 bytes in 2 blocks are still reachable in loss record 101 of 101
-==514614==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x48B6290: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
-==514614==    by 0x10D187: mlx_init (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B341: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B136: fdf_full_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B191: fdf_controls_key_press (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10D635: mlx_loop (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B3FB: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10A497: main (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== LEAK SUMMARY:
-==514614==    definitely lost: 0 bytes in 0 blocks
-==514614==    indirectly lost: 0 bytes in 0 blocks
-==514614==      possibly lost: 0 bytes in 0 blocks
-==514614==    still reachable: 218,258 bytes in 212 blocks
-==514614==         suppressed: 0 bytes in 0 blocks
-==514614== 
-==514614== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 3 from 1)
-==514614== 
-==514614== 1 errors in context 1 of 2:
-==514614== Conditional jump or move depends on uninitialised value(s)
-==514614==    at 0x484B235: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x10AE05: close_window (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B175: fdf_controls_key_press (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10D635: mlx_loop (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B3FB: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B136: fdf_full_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B191: fdf_controls_key_press (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10D635: mlx_loop (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B3FB: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B136: fdf_full_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10B191: fdf_controls_key_press (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10D635: mlx_loop (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==  Uninitialised value was created by a heap allocation
-==514614==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x10A414: main (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
-==514614== 
-==514614== 1 errors in context 2 of 2:
-==514614== Conditional jump or move depends on uninitialised value(s)
-==514614==    at 0x10B660: fdf_read_map (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==    by 0x10A449: main (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614==  Uninitialised value was created by a heap allocation
-==514614==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==514614==    by 0x10A414: main (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
-==514614== 
---514614-- 
---514614-- used_suppression:      3 X on SUSE11 writev uninit padding /usr/libexec/valgrind/default.supp:377
-==514614== 
-==514614== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 3 from 1)
+==637419== Memcheck, a memory error detector
+==637419== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==637419== Using Valgrind-3.18.1-42b08ed5bd-20211015 and LibVEX; rerun with -h for copyright info
+==637419== Command: ./myprogram map.txt
+==637419== Parent PID: 620518
+==637419== 
+--637419-- 
+--637419-- Valgrind options:
+--637419--    --leak-check=full
+--637419--    --show-leak-kinds=all
+--637419--    --track-origins=yes
+--637419--    --verbose
+--637419--    --log-file=valgrind-out.txt
+--637419-- Contents of /proc/version:
+--637419--   Linux version 5.15.0-91-generic (buildd@lcy02-amd64-045) (gcc (Ubuntu 11.4.0-1ubuntu1~22.04) 11.4.0, GNU ld (GNU Binutils for Ubuntu) 2.38) #101-Ubuntu SMP Tue Nov 14 13:30:08 UTC 2023
+--637419-- 
+--637419-- Arch and hwcaps: AMD64, LittleEndian, amd64-cx16-lzcnt-rdtscp-sse3-ssse3-avx-avx2-bmi-f16c-rdrand-rdseed
+--637419-- Page sizes: currently 4096, max supported 4096
+--637419-- Valgrind library directory: /usr/libexec/valgrind
+--637419-- Reading syms from /nfs/homes/mstrba/42/CORE/fdf/myprogram
+--637419-- Reading syms from /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+--637419--   Considering /usr/lib/debug/.build-id/cc/cdd41e22e25f77a8cda3d045c57ffdb01a9793.debug ..
+--637419--   .. build-id is valid
+--637419-- Reading syms from /usr/libexec/valgrind/memcheck-amd64-linux
+--637419--    object doesn't have a symbol table
+--637419--    object doesn't have a dynamic symbol table
+--637419-- Scheduler: using generic scheduler lock implementation.
+--637419-- Reading suppressions file: /usr/libexec/valgrind/default.supp
+==637419== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-637419-by-mstrba-on-???
+==637419== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-637419-by-mstrba-on-???
+==637419== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-637419-by-mstrba-on-???
+==637419== 
+==637419== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==637419== don't want to do, unless you know exactly what you're doing,
+==637419== or are doing some strange experiment):
+==637419==   /usr/bin/vgdb --pid=637419 ...command...
+==637419== 
+==637419== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==637419==   /path/to/gdb ./myprogram
+==637419== and then give GDB the following command
+==637419==   target remote | /usr/bin/vgdb --pid=637419
+==637419== --pid is optional if only one valgrind process is running
+==637419== 
+--637419-- REDIR: 0x402aa40 (ld-linux-x86-64.so.2:strlen) redirected to 0x580bcec2 (???)
+--637419-- REDIR: 0x402a810 (ld-linux-x86-64.so.2:index) redirected to 0x580bcedc (???)
+--637419-- Reading syms from /usr/libexec/valgrind/vgpreload_core-amd64-linux.so
+--637419--    object doesn't have a symbol table
+--637419-- Reading syms from /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so
+--637419--    object doesn't have a symbol table
+==637419== WARNING: new redirection conflicts with existing -- ignoring it
+--637419--     old: 0x0402aa40 (strlen              ) R-> (0000.0) 0x580bcec2 ???
+--637419--     new: 0x0402aa40 (strlen              ) R-> (2007.0) 0x0484ee30 strlen
+--637419-- REDIR: 0x4027220 (ld-linux-x86-64.so.2:strcmp) redirected to 0x484fcd0 (strcmp)
+--637419-- REDIR: 0x402afa0 (ld-linux-x86-64.so.2:mempcpy) redirected to 0x4853840 (mempcpy)
+--637419-- Reading syms from /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0
+--637419--    object doesn't have a symbol table
+--637419-- Reading syms from /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+--637419--    object doesn't have a symbol table
+--637419-- Reading syms from /usr/lib/x86_64-linux-gnu/libc.so.6
+--637419--   Considering /usr/lib/debug/.build-id/20/3de0ae33b53fee1578b117cb4123e85d0534f0.debug ..
+--637419--   .. build-id is valid
+==637419== WARNING: new redirection conflicts with existing -- ignoring it
+--637419--     old: 0x04a6bc60 (memalign            ) R-> (1011.0) 0x0484e080 memalign
+--637419--     new: 0x04a6bc60 (memalign            ) R-> (1017.0) 0x0484e050 aligned_alloc
+==637419== WARNING: new redirection conflicts with existing -- ignoring it
+--637419--     old: 0x04a6bc60 (memalign            ) R-> (1011.0) 0x0484e080 memalign
+--637419--     new: 0x04a6bc60 (memalign            ) R-> (1017.0) 0x0484e020 aligned_alloc
+==637419== WARNING: new redirection conflicts with existing -- ignoring it
+--637419--     old: 0x04a6bc60 (memalign            ) R-> (1011.0) 0x0484e080 memalign
+--637419--     new: 0x04a6bc60 (memalign            ) R-> (1017.0) 0x0484e050 aligned_alloc
+==637419== WARNING: new redirection conflicts with existing -- ignoring it
+--637419--     old: 0x04a6bc60 (memalign            ) R-> (1011.0) 0x0484e080 memalign
+--637419--     new: 0x04a6bc60 (memalign            ) R-> (1017.0) 0x0484e020 aligned_alloc
+--637419-- Reading syms from /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0
+--637419--    object doesn't have a symbol table
+--637419-- Reading syms from /usr/lib/x86_64-linux-gnu/libXau.so.6.0.0
+--637419--    object doesn't have a symbol table
+--637419-- Reading syms from /usr/lib/x86_64-linux-gnu/libXdmcp.so.6.0.0
+--637419--    object doesn't have a symbol table
+--637419-- Reading syms from /usr/lib/x86_64-linux-gnu/libbsd.so.0.11.5
+--637419--    object doesn't have a symbol table
+--637419-- Reading syms from /usr/lib/x86_64-linux-gnu/libmd.so.0.0.5
+--637419--    object doesn't have a symbol table
+--637419-- REDIR: 0x4a6e720 (libc.so.6:strnlen) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--637419-- REDIR: 0x4a6e9e0 (libc.so.6:strpbrk) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--637419-- REDIR: 0x4a6e2e0 (libc.so.6:strcmp) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--637419-- REDIR: 0x4a8ccd0 (libc.so.6:wcsnlen) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--637419-- REDIR: 0x4a6f6d0 (libc.so.6:memset) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--637419-- REDIR: 0x4a8b540 (libc.so.6:wcslen) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--637419-- REDIR: 0x4a6fc10 (libc.so.6:memcpy@@GLIBC_2.14) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--637419-- REDIR: 0x4a8b370 (libc.so.6:wcschr) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--637419-- REDIR: 0x4a6e260 (libc.so.6:index) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--637419-- REDIR: 0x4a6e960 (libc.so.6:rindex) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--637419-- REDIR: 0x4a6f5a0 (libc.so.6:memmove) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+==637419== Preferring higher priority redirection:
+--637419--     old: 0x04b665c0 (__memcpy_avx_unalign) R-> (2018.0) 0x04850f90 __memcpy_avx_unaligned_erms
+--637419--     new: 0x04b665c0 (__memcpy_avx_unalign) R-> (2018.1) 0x04852880 memmove
+--637419-- REDIR: 0x4a8b3f0 (libc.so.6:wcscmp) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--637419-- REDIR: 0x4a6f9e0 (libc.so.6:stpncpy) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--637419-- REDIR: 0x4a8b9b0 (libc.so.6:wmemchr) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--637419-- REDIR: 0x4a6e830 (libc.so.6:strncmp) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--637419-- REDIR: 0x4a6fa70 (libc.so.6:strcasecmp) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--637419-- REDIR: 0x4a6e420 (libc.so.6:strcspn) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--637419-- REDIR: 0x4a8b470 (libc.so.6:wcscpy) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--637419-- REDIR: 0x4a6e1d0 (libc.so.6:strcat) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--637419-- REDIR: 0x4a6fb60 (libc.so.6:strncasecmp_l) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--637419-- REDIR: 0x4a6f480 (libc.so.6:bcmp) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--637419-- REDIR: 0x4a77570 (libc.so.6:memrchr) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--637419-- REDIR: 0x4a71010 (libc.so.6:strchrnul) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--637419-- REDIR: 0x4a6e390 (libc.so.6:strcpy) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--637419-- REDIR: 0x4a6fb10 (libc.so.6:strcasecmp_l) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--637419-- REDIR: 0x4a6e6a0 (libc.so.6:strlen) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--637419-- REDIR: 0x4a6e8d0 (libc.so.6:strncpy) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--637419-- REDIR: 0x4a6f950 (libc.so.6:stpcpy) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--637419-- REDIR: 0x4a6f3f0 (libc.so.6:memchr) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--637419-- REDIR: 0x4a6eb00 (libc.so.6:strspn) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--637419-- REDIR: 0x4a6f7d0 (libc.so.6:mempcpy) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--637419-- REDIR: 0x4a6fac0 (libc.so.6:strncasecmp) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--637419-- REDIR: 0x4a70f80 (libc.so.6:rawmemchr) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--637419-- REDIR: 0x4b63410 (libc.so.6:__strrchr_avx2) redirected to 0x484e810 (rindex)
+--637419-- REDIR: 0x4a6b0a0 (libc.so.6:malloc) redirected to 0x4848820 (malloc)
+--637419-- REDIR: 0x4a6c520 (libc.so.6:calloc) redirected to 0x484d9d0 (calloc)
+--637419-- REDIR: 0x4a6b3e0 (libc.so.6:free) redirected to 0x484b210 (free)
+==637419== Conditional jump or move depends on uninitialised value(s)
+==637419==    at 0x10B666: fdf_read_map (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
+==637419==    by 0x10A449: main (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
+==637419==  Uninitialised value was created by a heap allocation
+==637419==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==637419==    by 0x10A414: main (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
+==637419== 
+--637419-- REDIR: 0x4b635e0 (libc.so.6:__strlen_avx2) redirected to 0x484ed10 (strlen)
+--637419-- REDIR: 0x4b5eb80 (libc.so.6:__strncmp_avx2) redirected to 0x484f3e0 (strncmp)
+--637419-- REDIR: 0x4b665c0 (libc.so.6:__memcpy_avx_unaligned_erms) redirected to 0x4852880 (memmove)
+--637419-- REDIR: 0x4b63200 (libc.so.6:__strchrnul_avx2) redirected to 0x4853330 (strchrnul)
+--637419-- REDIR: 0x4afa5f0 (libc.so.6:__strcpy_chk) redirected to 0x48533a0 (__strcpy_chk)
+--637419-- REDIR: 0x4a6efc0 (libc.so.6:__GI_strstr) redirected to 0x4853ae0 (__strstr_sse2)
+--637419-- REDIR: 0x4b5f880 (libc.so.6:__memcmp_avx2_movbe) redirected to 0x4852010 (bcmp)
+--637419-- REDIR: 0x4b66d80 (libc.so.6:__memset_avx2_unaligned_erms) redirected to 0x4852770 (memset)
+--637419-- REDIR: 0x4a6b740 (libc.so.6:realloc) redirected to 0x484dc50 (realloc)
+--637419-- REDIR: 0x4b64e40 (libc.so.6:__strncpy_avx2) redirected to 0x484efe0 (strncpy)
+--637419-- REDIR: 0x4b5e740 (libc.so.6:__strcmp_avx2) redirected to 0x484fbd0 (strcmp)
+--637419-- REDIR: 0x4b64ab0 (libc.so.6:__strcpy_avx2) redirected to 0x484ee60 (strcpy)
+==637419== Conditional jump or move depends on uninitialised value(s)
+==637419==    at 0x484B235: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==637419==    by 0x10AE0B: close_window (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
+==637419==    by 0x10D661: mlx_loop (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
+==637419==    by 0x10B401: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
+==637419==    by 0x10A497: main (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
+==637419==  Uninitialised value was created by a heap allocation
+==637419==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==637419==    by 0x10A414: main (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
+==637419== 
+==637419== 
+==637419== HEAP SUMMARY:
+==637419==     in use at exit: 136 bytes in 1 blocks
+==637419==   total heap usage: 11,261 allocs, 11,260 frees, 655,449 bytes allocated
+==637419== 
+==637419== Searching for pointers to 1 not-freed blocks
+==637419== Checked 156,944 bytes
+==637419== 
+==637419== 136 bytes in 1 blocks are still reachable in loss record 1 of 1
+==637419==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==637419==    by 0x10D16F: mlx_init (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
+==637419==    by 0x10B347: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
+==637419==    by 0x10A497: main (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
+==637419== 
+==637419== LEAK SUMMARY:
+==637419==    definitely lost: 0 bytes in 0 blocks
+==637419==    indirectly lost: 0 bytes in 0 blocks
+==637419==      possibly lost: 0 bytes in 0 blocks
+==637419==    still reachable: 136 bytes in 1 blocks
+==637419==         suppressed: 0 bytes in 0 blocks
+==637419== 
+==637419== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 1 from 1)
+==637419== 
+==637419== 1 errors in context 1 of 2:
+==637419== Conditional jump or move depends on uninitialised value(s)
+==637419==    at 0x484B235: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==637419==    by 0x10AE0B: close_window (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
+==637419==    by 0x10D661: mlx_loop (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
+==637419==    by 0x10B401: fdf_init_screen (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
+==637419==    by 0x10A497: main (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
+==637419==  Uninitialised value was created by a heap allocation
+==637419==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==637419==    by 0x10A414: main (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
+==637419== 
+==637419== 
+==637419== 1 errors in context 2 of 2:
+==637419== Conditional jump or move depends on uninitialised value(s)
+==637419==    at 0x10B666: fdf_read_map (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
+==637419==    by 0x10A449: main (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
+==637419==  Uninitialised value was created by a heap allocation
+==637419==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==637419==    by 0x10A414: main (in /nfs/homes/mstrba/42/CORE/fdf/myprogram)
+==637419== 
+--637419-- 
+--637419-- used_suppression:      1 X on SUSE11 writev uninit padding /usr/libexec/valgrind/default.supp:377
+==637419== 
+==637419== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 1 from 1)

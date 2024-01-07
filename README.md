@@ -1,5 +1,8 @@
 # FDF - Wireframe Model Project 🌍🖼️
 
+### Disclaimer 🚫⚠️
+This project can't be Dockerized due to OS-specific   dependencies of MiniLibX. Please run it locally for the   best experience.   
+  
 ## Overview 📜
 
 FDF is a graphical project focused on creating a simple wireframe model representation of a 3D landscape 🏞️. The project entails linking various points (x, y, z) through line segments to form a landscape model.
